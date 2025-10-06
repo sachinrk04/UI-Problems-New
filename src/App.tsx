@@ -3,9 +3,10 @@ import { MainLayout } from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import UIProblems from "./pages/UIProblems";
 import MCQuizApp from "./pages/UIProblems/MCQuizApp";
+
 function App() {
   return (
-    <>
+    <div>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
@@ -14,7 +15,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
-    </>
+    </div>
   );
 }
 
