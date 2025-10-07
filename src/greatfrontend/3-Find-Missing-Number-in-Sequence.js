@@ -1,5 +1,5 @@
 function findMissingNumberInSequence(numbers) {
-  const maxNo = Math.max(numbers);
+  const maxNo = Math.max(...numbers);
   const missings = [];
 
   for (let i = 0; i <= maxNo; i++) {
@@ -8,3 +8,7 @@ function findMissingNumberInSequence(numbers) {
 
   return missings;
 }
+
+console.log(findMissingNumberInSequence([1, 3, 0])); // [2]
+console.log(findMissingNumberInSequence([1])); // [9]
+console.log(findMissingNumberInSequence([3, 0, 4, 2, 1])); // [7]
