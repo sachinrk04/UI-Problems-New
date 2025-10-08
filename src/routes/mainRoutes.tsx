@@ -11,13 +11,6 @@ export const mainRoutes = [
     name: "UI-Problems",
     icon: Package,
     href: "/ui-problems",
-    children: [
-      {
-        name: "Quiz App",
-        href: "/ui-problems/mc-quiz-app",
-        icon: Home,
-        children: [],
-      },
-    ],
+    children: [],
   },
 ];
