@@ -5,19 +5,21 @@ import UIProblems from "./pages/UIProblems";
 import MCQuizApp from "./pages/UIProblems/MCQuizApp";
 import FolderFileExplorerOne from "./pages/UIProblems/FolderFileExplorerOne";
 import FolderFileExplorerTwo from "./pages/UIProblems/FolderFileExplorerTwo";
+import OtpInput from "./pages/UIProblems/OtpInput";
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="ui-problems" element={<UIProblems />}>
-            <Route path="explorer-one" element={<FolderFileExplorerOne />} />
-            <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
-            <Route path="mc-quiz-app" element={<MCQuizApp />} />
-          </Route>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="ui-problems" element={<UIProblems />}>
+          <Route path="explorer-one" element={<FolderFileExplorerOne />} />
+          <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
+          <Route path="mc-quiz-app" element={<MCQuizApp />} />
+          <Route path="otp-input" element={<OtpInput />} />
         </Route>
-      </Routes>
+      </Route>
+    </Routes>
   );
 }
 

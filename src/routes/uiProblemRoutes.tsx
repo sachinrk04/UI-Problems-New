@@ -1,22 +1,28 @@
-import { Folder, Folders } from "lucide-react";
+import { Folder, Folders, SignatureIcon } from "lucide-react";
 
 export const uiProblemRoutes = [
   {
     name: "Explorer I",
     href: "/ui-problems/explorer-one",
     icon: Folder,
-    description: "Explorer features",
+    description: "",
   },
   {
     name: "Explorer II",
     href: "/ui-problems/explorer-two",
     icon: Folders,
-    description: "Explorer features",
+    description: "",
   },
   {
     name: "MC Quiz App",
     href: "/ui-problems/mc-quiz-app",
     icon: Folder,
-    description: "MC Quiz App features",
+    description: "",
+  },
+  {
+    name: "OTP Input",
+    href: "/ui-problems/otp-input",
+    icon: SignatureIcon,
+    description: "",
   },
 ];
