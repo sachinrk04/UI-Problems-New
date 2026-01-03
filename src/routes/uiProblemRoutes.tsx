@@ -1,4 +1,4 @@
-import { Folder, Folders, SignatureIcon } from "lucide-react";
+import { Folder, Folders, SignatureIcon, Square } from "lucide-react";
 
 export const uiProblemRoutes = [
   {
@@ -23,6 +23,12 @@ export const uiProblemRoutes = [
     name: "OTP Input",
     href: "/ui-problems/otp-input",
     icon: SignatureIcon,
+    description: "",
+  },
+  {
+    name: "Tic Tac Toe",
+    href: "/ui-problems/tic-tac-toe",
+    icon: Square,
     description: "",
   },
 ];
