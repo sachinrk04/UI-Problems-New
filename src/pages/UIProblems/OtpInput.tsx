@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 
 const OtpInput = () => {
   const [otp, setOtp] = useState(Array(6).fill(""));
@@ -34,24 +35,32 @@ const OtpInput = () => {
 
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData("Text").replace(/\D/g, "");
-    if (!pastedData) return;
 
-    const newOtp = [...otp];
-    let lastFilledIndex = -1;
+    const pastedData = e.clipboardData.getData("text");
+    // const removeText = pastedData.replace(/\D/g, "");
+
+    if (!/^\d+$/.test(pastedData)) {
+      toast.error("Invalid OTP!");
+      return;
+    } else if (pastedData.length !== 6) {
+      toast.warning("Invalid OTP length!");
+    }
+
+    // if (!pastedData) return;
+
+    const newOtp = Array(6).fill("");
+
     for (let i = 0; i < 6; i++) {
       if (pastedData[i] !== undefined) {
         newOtp[i] = pastedData[i];
-        lastFilledIndex = i;
       }
     }
+
     setOtp(newOtp);
+
     // Focus the next input if available
-    if (lastFilledIndex >= 0 && lastFilledIndex < 5) {
-      otpRef.current[lastFilledIndex + 1]?.focus();
-    } else if (lastFilledIndex === 5) {
-      otpRef.current[5]?.blur();
-    }
+    const focusIndex = Math.min(pastedData.length, 5);
+    otpRef.current[focusIndex]?.focus();
   };
 
   const handleReset = () => {

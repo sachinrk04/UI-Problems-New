@@ -6,20 +6,24 @@ import MCQuizApp from "./pages/UIProblems/MCQuizApp";
 import FolderFileExplorerOne from "./pages/UIProblems/FolderFileExplorerOne";
 import FolderFileExplorerTwo from "./pages/UIProblems/FolderFileExplorerTwo";
 import OtpInput from "./pages/UIProblems/OtpInput";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="ui-problems" element={<UIProblems />}>
-          <Route path="explorer-one" element={<FolderFileExplorerOne />} />
-          <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
-          <Route path="mc-quiz-app" element={<MCQuizApp />} />
-          <Route path="otp-input" element={<OtpInput />} />
+    <>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="ui-problems" element={<UIProblems />}>
+            <Route path="explorer-one" element={<FolderFileExplorerOne />} />
+            <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
+            <Route path="mc-quiz-app" element={<MCQuizApp />} />
+            <Route path="otp-input" element={<OtpInput />} />
+          </Route>
         </Route>
-      </Route>
-    </Routes>
+      </Routes>
+      <Toaster richColors position="top-center" />
+    </>
   );
 }
 
