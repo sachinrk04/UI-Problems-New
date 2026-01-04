@@ -42,7 +42,7 @@ const TicTacToe = () => {
   const renderCell = (cell: number) => {
     return (
       <div
-        className="w-10 h-10 border flex justify-center items-center text-gray-500 cursor-pointer hover:bg-gray-200"
+        className="w-12 h-12 border-2 border-white bg-gray-200 flex justify-center items-center text-gray-500 cursor-pointer hover:bg-primary/20"
         onClick={() => handleOnClick(cell)}
       >
         {board[cell]}

@@ -31,4 +31,10 @@ export const uiProblemRoutes = [
     icon: Square,
     description: "",
   },
+  {
+    name: "Tic Tac Toe II",
+    href: "/ui-problems/tic-tac-toe-ii",
+    icon: Square,
+    description: "",
+  },
 ];

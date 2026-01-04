@@ -8,6 +8,7 @@ import FolderFileExplorerTwo from "./pages/UIProblems/FolderFileExplorerTwo";
 import OtpInput from "./pages/UIProblems/OtpInput";
 import { Toaster } from "./components/ui/sonner";
 import TicTacToe from "./pages/UIProblems/TicTacToe";
+import TicTacToeII from "./pages/UIProblems/TicTacToeII";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />
+            <Route path="tic-tac-toe-ii" element={<TicTacToeII />} />
           </Route>
         </Route>
       </Routes>
