@@ -9,6 +9,7 @@ import OtpInput from "./pages/UIProblems/OtpInput";
 import { Toaster } from "./components/ui/sonner";
 import TicTacToe from "./pages/UIProblems/TicTacToe";
 import TicTacToeII from "./pages/UIProblems/TicTacToeII";
+import TicTacToeIII from "./pages/UIProblems/TicTacToeIII";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />
             <Route path="tic-tac-toe-ii" element={<TicTacToeII />} />
+            <Route path="tic-tac-toe-iii" element={<TicTacToeIII />} />
           </Route>
         </Route>
       </Routes>

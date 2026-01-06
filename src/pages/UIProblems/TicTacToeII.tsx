@@ -40,7 +40,7 @@ const TicTacToeII = () => {
 
     // Col
     for (let i = 0; i < size; i++) {
-      if (board[colIndex][i] !== player) colWinner = false;
+      if (board[i][colIndex] !== player) colWinner = false;
     }
 
     // Main diagonal
