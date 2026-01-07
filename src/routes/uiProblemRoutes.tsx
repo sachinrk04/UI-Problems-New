@@ -1,4 +1,10 @@
-import { Folder, Folders, SignatureIcon, Square } from "lucide-react";
+import {
+  Dice6Icon,
+  Folder,
+  Folders,
+  SignatureIcon,
+  Square,
+} from "lucide-react";
 
 export const uiProblemRoutes = [
   {
@@ -26,7 +32,7 @@ export const uiProblemRoutes = [
     description: "",
   },
   {
-    name: "Tic Tac Toe",
+    name: "Tic Tac Toe I",
     href: "/ui-problems/tic-tac-toe",
     icon: Square,
     description: "",
@@ -41,6 +47,30 @@ export const uiProblemRoutes = [
     name: "Tic Tac Toe III",
     href: "/ui-problems/tic-tac-toe-iii",
     icon: Square,
+    description: "",
+  },
+  {
+    name: "Dice Roller I",
+    href: "/ui-problems/dice-roller-i",
+    icon: Dice6Icon,
+    description: "",
+  },
+  {
+    name: "Dice Roller II",
+    href: "/ui-problems/dice-roller-ii",
+    icon: Dice6Icon,
+    description: "",
+  },
+  {
+    name: "Dice Roller III",
+    href: "/ui-problems/dice-roller-iii",
+    icon: Dice6Icon,
+    description: "",
+  },
+  {
+    name: "Dice Roller IV",
+    href: "/ui-problems/dice-roller-iv",
+    icon: Dice6Icon,
     description: "",
   },
 ];
