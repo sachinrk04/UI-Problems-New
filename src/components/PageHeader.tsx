@@ -12,9 +12,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
         </h1>
       </div>
       {description && (
-        <p className="mb-0 text-sm font-semibold text-primary/90">
-          {description}
-        </p>
+        <p className="mb-0 text-sm text-primary/90">{description}</p>
       )}
     </div>
   );
