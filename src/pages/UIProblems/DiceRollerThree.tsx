@@ -11,7 +11,7 @@ import {
   Dice6Icon,
 } from "lucide-react";
 const DiceRollerThree = () => {
-  const [count, setCount] = useState<number>(1);
+  const [count, setCount] = useState<number>(0);
   const [results, setResults] = useState<any[]>([]);
   const rollDice = () => {
     const newResults = [];
