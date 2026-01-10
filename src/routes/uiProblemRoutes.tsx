@@ -4,6 +4,7 @@ import {
   Folders,
   SignatureIcon,
   Square,
+  Users2,
 } from "lucide-react";
 
 export const uiProblemRoutes = [
@@ -77,6 +78,12 @@ export const uiProblemRoutes = [
     name: "Multi Select",
     href: "/ui-problems/multi-select",
     icon: Dice6Icon,
+    description: "",
+  },
+  {
+    name: "User Lists",
+    href: "/ui-problems/user-lists",
+    icon: Users2,
     description: "",
   },
 ];

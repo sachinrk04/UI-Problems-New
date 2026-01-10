@@ -15,6 +15,7 @@ import DiceRollerTwo from "./pages/UIProblems/DiceRollerTwo";
 import DiceRollerThree from "./pages/UIProblems/DiceRollerThree";
 import DiceRollerFour from "./pages/UIProblems/DiceRollerFour";
 import MultiSelect from "./pages/UIProblems/MultiSelect";
+import UserLists from "./pages/UIProblems/UserLists";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="dice-roller-iii" element={<DiceRollerThree />} />
             <Route path="dice-roller-iv" element={<DiceRollerFour />} />
             <Route path="multi-select" element={<MultiSelect />} />
+            <Route path="user-lists" element={<UserLists />} />
           </Route>
         </Route>
       </Routes>
