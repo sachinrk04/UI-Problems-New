@@ -73,4 +73,10 @@ export const uiProblemRoutes = [
     icon: Dice6Icon,
     description: "",
   },
+  {
+    name: "Multi Select",
+    href: "/ui-problems/multi-select",
+    icon: Dice6Icon,
+    description: "",
+  },
 ];
