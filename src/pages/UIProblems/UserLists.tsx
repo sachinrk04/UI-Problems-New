@@ -37,7 +37,6 @@ const UserLists = () => {
     setUsers(storeUsers);
   };
 
-  console.log("users--->", users);
   return (
     <div className="p-4">
       <div className="flex flex-col justify-center items-center gap-4">

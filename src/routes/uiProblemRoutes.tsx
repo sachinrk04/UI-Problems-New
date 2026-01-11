@@ -2,6 +2,8 @@ import {
   Dice6Icon,
   Folder,
   Folders,
+  Grid2x2X,
+  Grid3x3,
   SignatureIcon,
   Square,
   Users2,
@@ -84,6 +86,24 @@ export const uiProblemRoutes = [
     name: "User Lists",
     href: "/ui-problems/user-lists",
     icon: Users2,
+    description: "",
+  },
+  {
+    name: "Grid Lights",
+    href: "/ui-problems/grid-lights",
+    icon: Grid3x3,
+    description: "",
+  },
+  {
+    name: "Grid Lights II",
+    href: "/ui-problems/grid-lights-ii",
+    icon: Grid2x2X,
+    description: "",
+  },
+  {
+    name: "Grid Lights III",
+    href: "/ui-problems/grid-lights-iii",
+    icon: Grid2x2X,
     description: "",
   },
 ];
