@@ -37,12 +37,14 @@ function promiseAny(promises) {
     let rejectedCount = 0;
 
     if (promises.length === 0) {
-      reject(new AggregateErrors(errors));
+      reject(new AggregateErrors([]));
       return;
     }
     promises.forEach((promise, index) => {
       Promise.resolve(promise)
-        .then(resolve)
+        .then((value) => {
+          resolve(value);
+        })
         .catch((error) => {
           errors[index] = error;
           rejectedCount++;
