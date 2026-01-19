@@ -1,16 +1,14 @@
 function debounce(cb, wait) {
-    let timeoutId;
+  let timeoutId;
 
-    return function(...args) {
-        const context = this;
+  return function (...args) {
+    if (timeoutId) clearTimeout(timeoutId);
 
-        clearTimeout(timeoutId);
-
-        timeoutId = setTimeout(() => {
-            cb.apply(context, args);
-        }, wait)
-    }
-};
+    timeoutId = setTimeout(() => {
+      cb.apply(this, args);
+    }, wait);
+  };
+}
 
 const debouncedSum = debounce((a, b) => {
   console.log(a + b);
