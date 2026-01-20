@@ -23,6 +23,12 @@ export const uiProblemRoutes = [
     description: "",
   },
   {
+    name: "Task Managment",
+    href: "/ui-problems/task-managment",
+    icon: Folders,
+    description: "",
+  },
+  {
     name: "MC Quiz App",
     href: "/ui-problems/mc-quiz-app",
     icon: Folder,
