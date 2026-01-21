@@ -1,18 +1,8 @@
 import { useState } from "react";
 
-export type TaskStatus = "TODO" | "INPROGRESS" | "DONE";
+const columns = ["TODO", "INPROGRESS", "DONE"];
 
-interface Task {
-  id: string;
-  title: string;
-  userId: string;
-  description: string;
-  status: TaskStatus;
-}
-
-const columns: TaskStatus[] = ["TODO", "INPROGRESS", "DONE"];
-
-const initialTasks: Task[] = [
+const initialTasks = [
   {
     id: `task-${Date.now()}`,
     title: "Task 1",
@@ -23,14 +13,14 @@ const initialTasks: Task[] = [
 ];
 
 const TaskManagment = () => {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [tasks, setTasks] = useState(initialTasks);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const addTask = () => {
     if (!title.trim()) return;
 
-    const newTask: Task = {
+    const newTask = {
       id: `task-${Date.now()}`,
       title: title.trim(),
       description: description.trim(),
@@ -43,7 +33,7 @@ const TaskManagment = () => {
     setDescription("");
   };
 
-  const moveTask = (id: string, status: TaskStatus) => {
+  const moveTask = (id: string, status: string) => {
     setTasks(
       tasks.map((task) => (task.id === id ? { ...task, status: status } : task))
     );
@@ -106,7 +96,7 @@ const TaskManagment = () => {
                       <select
                         value={task.status}
                         onChange={(e) =>
-                          moveTask(task.id, e.target.value as TaskStatus)
+                          moveTask(task.id, e.target.value)
                         }
                         className="px-2 py-1 text-xs border rounded-sm"
                       >

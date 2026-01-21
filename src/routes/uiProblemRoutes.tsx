@@ -4,6 +4,7 @@ import {
   Folders,
   Grid2x2X,
   Grid3x3,
+  ListTodoIcon,
   SignatureIcon,
   Square,
   Users2,
@@ -25,7 +26,19 @@ export const uiProblemRoutes = [
   {
     name: "Task Managment",
     href: "/ui-problems/task-managment",
-    icon: Folders,
+    icon: ListTodoIcon,
+    description: "",
+  },
+  {
+    name: "Task Managment - II",
+    href: "/ui-problems/task-managment-ii",
+    icon: ListTodoIcon,
+    description: "",
+  },
+  {
+    name: "Task Managment - III",
+    href: "/ui-problems/task-managment-iii",
+    icon: ListTodoIcon,
     description: "",
   },
   {

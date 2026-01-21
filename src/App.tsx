@@ -20,6 +20,8 @@ import GridLights from "./pages/UIProblems/GridLights";
 import GridLightsII from "./pages/UIProblems/GridLightsII";
 import GridLightsIII from "./pages/UIProblems/GridLightsIII";
 import TaskManagment from "./pages/UIProblems/TaskManagment";
+import TaskManagmentII from "./pages/UIProblems/TaskManagmentII";
+import TaskManagmentIII from "./pages/UIProblems/TaskManagmentIII";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
             <Route path="explorer-one" element={<FolderFileExplorerOne />} />
             <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
             <Route path="task-managment" element={<TaskManagment />} />
+            <Route path="task-managment-ii" element={<TaskManagmentII />} />
+            <Route path="task-managment-iii" element={<TaskManagmentIII />} />
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />
