@@ -23,6 +23,26 @@ const TaskManagmentIII = () => {
   const [tasks, setTasks] = useState(initialTasks);
   const [draggingTaskId, setDraggingTaskId] = useState<string | null>(null);
 
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const addTask = () => {
+    const payload = {
+        id: `taskId-${Date.now()}`,
+        title: title.trim(),
+        userId: `userId-${Date.now()}`,
+        description: description.trim(),
+        status: "TODO",
+    }
+
+    setTasks((prev) => {
+        return [...prev, payload]
+    })
+    
+    setTitle("");
+    setDescription("");
+  }
+
   const onDragStart = (taskId: string) => {
     setDraggingTaskId(taskId);
   };
@@ -34,11 +54,11 @@ const TaskManagmentIII = () => {
   const onDrop = (status: string) => {
     if (!draggingTaskId) return;
 
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === draggingTaskId ? { ...task, status } : task
-      )
-    );
+    setTasks((prev) => {
+        return prev.map((task) => {
+            return task.id === draggingTaskId ? { ...task, status } : task
+        })
+    });
 
     setDraggingTaskId(null);
   };
@@ -47,7 +67,25 @@ const TaskManagmentIII = () => {
     <div className="p-4">
       <h1 className="mb-6 text-xl font-semibold">Native Drag & Drop Kanban</h1>
       <div className="max-w-lg p-4 mb-4 space-y-3 bg-gray-100 rounded-sm">
-        Add
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Task title"
+          className="w-full px-3 py-2 text-sm border rounded"
+        />
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Task description"
+          className="w-full px-3 py-2 text-sm border rounded"
+        />
+        <button
+          onClick={addTask}
+          disabled={title.trim().length === 0}
+          className="px-4 py-2 text-sm text-white rounded bg-primary"
+        >
+          Add Task
+        </button>
       </div>
       <div className="flex justify-around p-4 bg-gray-100 rounded-sm gap-x-4">
         {columns.map((column) => (
