@@ -14,12 +14,12 @@ import {
 type DiceValue = 1 | 2 | 3 | 4 | 5 | 6;
 
 const DICEICONS: Record<DiceValue, JSX.Element> = {
-  1: <Dice1Icon className="w-24 h-24 text-red-500" />,
-  2: <Dice2Icon className="w-24 h-24" />,
-  3: <Dice3Icon className="w-24 h-24" />,
-  4: <Dice4Icon className="w-24 h-24" />,
-  5: <Dice5Icon className="w-24 h-24" />,
-  6: <Dice6Icon className="w-24 h-24 text-red-500" />,
+  1: <Dice1Icon className="w-24 h-24 text-red-500 rounded-md shadow-lg" />,
+  2: <Dice2Icon className="w-24 h-24 rounded-md shadow-lg" />,
+  3: <Dice3Icon className="w-24 h-24 rounded-md shadow-lg" />,
+  4: <Dice4Icon className="w-24 h-24 rounded-md shadow-lg" />,
+  5: <Dice5Icon className="w-24 h-24 rounded-md shadow-lg" />,
+  6: <Dice6Icon className="w-24 h-24 text-red-500 rounded-md shadow-lg" />,
 };
 
 const getRandomDice = (): DiceValue =>
@@ -49,21 +49,21 @@ const DiceRollerFour = () => {
 
   return (
     <div className="p-4">
-      <div className="flex flex-col justify-center items-center gap-4">
-        <div className="flex gap-2 justify-center items-center">
+      <div className="flex flex-col items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-2">
           <Label>Number of Dice</Label>
           <Input
             type="number"
             min={1}
             value={count}
             onChange={(e: any) => setCount(e.target.value)}
-            className="w-40 h-9 rounded-sm"
+            className="w-40 rounded-sm h-9"
           />
-          <Button className="h-9 rounded-sm" onClick={() => rollDice()}>
+          <Button className="rounded-sm h-9" onClick={() => rollDice()}>
             Roll
           </Button>
         </div>
-        <div className={`grid ${renderCol} gap-4`}>{renderedDice}</div>
+        <div className={`bg-gray-50 max-h-[calc(100vh-150px)] shadow-inner p-2 rounded-sm grid ${renderCol} gap-4 overflow-auto`}>{renderedDice}</div>
       </div>
     </div>
   );

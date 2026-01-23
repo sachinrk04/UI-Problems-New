@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PageHeader from "./PageHeader";
 
 const UIProblemsComponents = ({uiComponents}: any) => {
-  console.log("uiComponents--->", uiComponents)
+
   return (
     <div className="p-4">
       <PageHeader
