@@ -22,6 +22,8 @@ import GridLightsIII from "./pages/UIProblems/GridLightsIII";
 import TaskManagment from "./pages/UIProblems/TaskManagment";
 import TaskManagmentII from "./pages/UIProblems/TaskManagmentII";
 import TaskManagmentIII from "./pages/UIProblems/TaskManagmentIII";
+import TrafficLight from "./pages/UIProblems/TrafficLight";
+import TrafficLightII from "./pages/UIProblems/TrafficLightII";
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
             <Route path="grid-lights" element={<GridLights />} />
             <Route path="grid-lights-ii" element={<GridLightsII />} />
             <Route path="grid-lights-iii" element={<GridLightsIII />} />
+            <Route path="traffic-light" element={<TrafficLight />} />
+            <Route path="traffic-light-ii" element={<TrafficLightII />} />
           </Route>
         </Route>
       </Routes>

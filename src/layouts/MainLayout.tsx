@@ -1,4 +1,4 @@
-import { Footer } from "@/components/Footer";
+// import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { Outlet } from "react-router-dom";
@@ -13,7 +13,7 @@ export function MainLayout() {
             <Outlet />
           </div>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

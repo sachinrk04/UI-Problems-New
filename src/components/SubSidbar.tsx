@@ -24,7 +24,7 @@ const SubSidbar = ({
         </div>
       )}
 
-      <nav className="flex-1 px-2 py-2 space-y-1">
+      <nav className="flex-1 px-2 py-2 space-y-1 overflow-auto">
         {subSidbarRoutes &&
           subSidbarRoutes.length > 0 &&
           subSidbarRoutes.map((route, index) => {

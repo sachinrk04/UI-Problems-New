@@ -6,6 +6,7 @@ import {
   Grid3x3,
   ListTodoIcon,
   SignatureIcon,
+  SignpostBigIcon,
   Square,
   Users2,
 } from "lucide-react";
@@ -123,6 +124,18 @@ export const uiProblemRoutes = [
     name: "Grid Lights III",
     href: "/ui-problems/grid-lights-iii",
     icon: Grid2x2X,
+    description: "",
+  },
+  {
+    name: "Traffic Light",
+    href: "/ui-problems/traffic-light",
+    icon: SignpostBigIcon,
+    description: "",
+  },
+  {
+    name: "Traffic Light - II",
+    href: "/ui-problems/traffic-light-ii",
+    icon: SignpostBigIcon,
     description: "",
   },
 ];
