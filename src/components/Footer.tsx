@@ -4,14 +4,14 @@ import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t transition-all duration-300 hover:shadow-lg">
+    <footer className="transition-all duration-300 bg-white border-t hover:shadow-lg">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4 space-x-2 group">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
+                <div className="flex items-center justify-center w-8 h-8 transition-all duration-300 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
                   <span className="text-sm font-bold text-white">RC</span>
                 </div>
                 <span className="text-lg font-semibold transition-colors duration-200 group-hover:text-blue-600">
@@ -33,7 +33,7 @@ export function Footer() {
                     key={social.label}
                     variant="outline"
                     size="sm"
-                    className="p-0 h-9 w-9 transition-all duration-200 hover:scale-110 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
+                    className="p-0 transition-all duration-200 h-9 w-9 hover:scale-110 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
                     title={social.label}
                   >
                     <social.icon className="w-4 h-4 transition-transform duration-200 hover:rotate-12" />
@@ -57,7 +57,7 @@ export function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-gray-600 transition-all duration-200 hover:text-blue-600 hover:translate-x-1 inline-block transform"
+                      className="inline-block text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:translate-x-1"
                     >
                       {link}
                     </a>
@@ -77,7 +77,7 @@ export function Footer() {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-gray-600 transition-all duration-200 hover:text-blue-600 hover:translate-x-1 inline-block transform"
+                        className="inline-block text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:translate-x-1"
                       >
                         {link}
                       </a>
@@ -101,7 +101,7 @@ export function Footer() {
                 <a
                   key={link}
                   href="#"
-                  className="text-sm text-gray-600 transition-all duration-200 hover:text-blue-600 hover:scale-105 transform"
+                  className="text-sm text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:scale-105"
                 >
                   {link}
                 </a>

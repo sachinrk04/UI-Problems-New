@@ -17,7 +17,7 @@ const SubSidbar = ({
   const location = useLocation();
 
   return (
-    <div className="flex flex-col w-64 min-h-[calc(100vh-4rem)] h-full border-r bg-gray-50">
+    <div className="flex flex-col w-64 min-h-[calc(100vh-4rem)] h-full border-l bg-gray-50">
       {title && title.length > 0 && (
         <div className="px-2 py-2 border-b border-gray-200">
           <h2 className="font-semibold text-gray-900 text-md">{title}</h2>
