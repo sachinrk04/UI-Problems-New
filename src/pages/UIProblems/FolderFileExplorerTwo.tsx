@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  Folder,
   File,
   ChevronRight,
   ChevronDown,
@@ -153,9 +152,7 @@ const FolderFileExplorerTwo = () => {
             </button>
           )}
 
-          {item.type === "folder" ? (
-            <Folder size={14} className="mr-1 text-blue-500" />
-          ) : (
+          {item.type === "file" && (
             <File size={14} className="mr-1 text-gray-500" />
           )}
 
@@ -198,14 +195,14 @@ const FolderFileExplorerTwo = () => {
               <>
                 <span
                   className="p-1 cursor-pointer"
-                  title="Add File"
+                  title="New File"
                   onClick={() => addItem(item.id, "file")}
                 >
                   <FilePlusIcon size={12} />
                 </span>
                 <span
                   className="p-1 cursor-pointer"
-                  title="Add Folder"
+                  title="New Folder"
                   onClick={() => addItem(item.id, "folder")}
                 >
                   <FolderPlusIcon size={12} />
@@ -244,49 +241,56 @@ const FolderFileExplorerTwo = () => {
   return (
     <div className="h-full p-4">
       <ResizablePanelGroup
-      direction="horizontal"
-      className="flex h-full border border-gray-200 rounded-md"
-    >
-      <ResizablePanel defaultSize={25} className="min-w-[200px] overflow-auto">
-        <div className="flex flex-col h-full p-4 bg-gray-50">
-          <div className="flex items-center justify-between h-3 mb-2">
-            <h1 className="text-sm font-medium uppercase">
-              {structure.appName}
-            </h1>
-            <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-1"
-                onClick={() => addItem(null, "file")}
-                title="Add File"
-              >
-                <FilePlusIcon size={12} />
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-1"
-                onClick={() => addItem(null, "folder")}
-                title="Add Folder"
-              >
-                <FolderPlusIcon size={12} />
-              </Button>
+        direction="horizontal"
+        className="flex h-full border border-gray-200"
+      >
+        <ResizablePanel
+          defaultSize={25}
+          className="min-w-[200px] overflow-auto"
+        >
+          <div className="flex flex-col h-full p-4 bg-gray-50">
+            <div className="flex items-center justify-between h-3 mb-2">
+              <h1 className="text-sm font-medium uppercase">
+                {structure.appName}
+              </h1>
+              <div className="flex gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="p-1"
+                  onClick={() => addItem(null, "file")}
+                  title="New File..."
+                >
+                  <FilePlusIcon size={12} />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="p-1"
+                  onClick={() => addItem(null, "folder")}
+                  title="New Folder..."
+                >
+                  <FolderPlusIcon size={12} />
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex flex-col overflow-auto gap-y-1">
+              {structure.children.map((item) => renderItem(item))}
             </div>
           </div>
-
-          <div className="flex flex-col gap-y-1">
-            {structure.children.map((item) => renderItem(item))}
+        </ResizablePanel>
+        <ResizableHandle className="h-full bg-gray-200" />
+        <ResizablePanel defaultSize={75} className="overflow-auto">
+          <div className="w-full h-full p-4 overflow-auto bg-white">
+            <pre className="text-sm">
+              <code className="font-mono">
+                {JSON.stringify(structure, null, 2)}
+              </code>
+            </pre>
           </div>
-        </div>
-      </ResizablePanel>
-      <ResizableHandle className="h-full bg-gray-200" />
-      <ResizablePanel defaultSize={75}>
-        <div className="flex-1 h-full p-4 bg-gray-50">
-          <h1>Content</h1>
-        </div>
-      </ResizablePanel>
-    </ResizablePanelGroup>
+        </ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   );
 };
