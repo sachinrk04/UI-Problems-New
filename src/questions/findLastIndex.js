@@ -34,12 +34,12 @@ function findLastIndex(array, predicate, fromIndex = array.length - 1) {
 
   let index = fromIndex;
 
-  if (index >= length) index = length - 1;
-
   if (index < 0) {
     index = length + index;
     if (index < 0) index = 0;
   }
+
+  if (index >= length) index = length - 1;
 
   for (let i = index; i >= 0; i--) {
     if (predicate(array[i], i, array)) {
