@@ -44,7 +44,7 @@ export function Sidebar() {
               <Link
                 key={route.name}
                 to={route.href}
-                className={`group flex items-center px-3 py-1.5 text-sm font-medium rounded-sm transition-all duration-200 transform ${
+                className={`group flex items-center px-3 py-2 text-sm font-medium rounded-sm transition-all duration-200 transform shadow-[0_2px_10px_rgba(0,0,0,0.10)] ${
                   isActive
                     ? "bg-primary/20 text-primary shadow-sm"
                     : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"
@@ -63,7 +63,7 @@ export function Sidebar() {
                 />
                 <div className="flex items-center justify-between w-full">
                   {isHovered && (
-                    <span className="transition-all duration-200 text-sm">
+                    <span className="text-sm transition-all duration-200">
                       {route.name}
                     </span>
                   )}
@@ -106,8 +106,8 @@ export function Sidebar() {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Main Navigation */}
-      <div className="flex-1 py-2 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-        <nav className="px-2 space-y-1">{renderRoutes(mainRoutes)}</nav>
+      <div className="flex-1 py-3 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+        <nav className="px-2 space-y-3">{renderRoutes(mainRoutes)}</nav>
       </div>
 
       {/* Sidebar Footer */}

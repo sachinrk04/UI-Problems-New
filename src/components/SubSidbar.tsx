@@ -17,14 +17,14 @@ const SubSidbar = ({
   const location = useLocation();
 
   return (
-    <div className="flex flex-col w-64 min-h-[calc(100vh-4rem)] h-full border-l bg-gray-50">
+    <div className="flex flex-col w-72 min-h-[calc(100vh-4rem)] h-full border-l bg-gray-50">
       {title && title.length > 0 && (
-        <div className="px-2 py-2 border-b border-gray-200">
-          <h2 className="font-semibold text-gray-900 text-md">{title}</h2>
+        <div className="p-3 border-b border-gray-200 shadow-sm">
+          <h2 className="font-semibold text-gray-700 text-md">{title}</h2>
         </div>
       )}
 
-      <nav className="flex-1 px-2 py-2 space-y-1 overflow-auto">
+      <nav className="flex-1 p-3 space-y-3 overflow-auto">
         {subSidbarRoutes &&
           subSidbarRoutes.length > 0 &&
           subSidbarRoutes.map((route, index) => {
@@ -36,11 +36,11 @@ const SubSidbar = ({
               <Link
                 key={route.name}
                 to={route.href}
-                className={`flex justify-center flex-col gap-y-1 px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                className={`flex justify-center flex-col gap-y-1 px-3 py-3 text-sm font-medium rounded-md transition-all duration-200 shadow-[0_2px_10px_rgba(0,0,0,0.10)] ${
                   isActive
-                    ? "bg-primary/10 text-primary"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                } ${isLast ? "mb-2" : ""} ${isActive ? "bg-blue-100" : ""}`}
+                    ? "bg-primary/30 text-primary"
+                    : "text-gray-700 hover:bg-gray-200 hover:text-gray-700"
+                } ${isLast ? "mb-2" : ""}`}
               >
                 <div className="flex items-center">
                   {route.icon && (

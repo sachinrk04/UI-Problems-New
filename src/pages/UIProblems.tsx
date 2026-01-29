@@ -26,7 +26,7 @@ const UIProblems = () => {
         </>
       </main>
       <div className="calc(100vh-4rem) overflow-auto">
-        <SubSidbar subSidbarRoutes={uiProblemRoutes} />
+        <SubSidbar subSidbarRoutes={uiProblemRoutes} title="Ui Probems" />
       </div>
     </div>
   );
