@@ -1,0 +1,86 @@
+{
+  "BASIC_GIT": [
+    {
+      "title": "git init",
+      "description": "Initializes a new Git repository in the current directory."
+    },
+    {
+      "title": "git clone <repo_url>",
+      "description": "Clones a repository from a remote URL to your local machine."
+    },
+    {
+      "title": "git status",
+      "description": "Shows the working directory status (modified, staged, untracked files)."
+    },
+    {
+      "title": "git add <file>",
+      "description": "Stages a file or files to be committed."
+    },
+    {
+      "title": "git commit -m \"message\"",
+      "description": "Commits staged changes to the local repository with a message."
+    },
+    {
+      "title": "git push",
+      "description": "Pushes committed changes to the remote repository."
+    },
+    {
+      "title": "git pull",
+      "description": "Fetches and merges changes from the remote repository into the local branch."
+    },
+    {
+      "title": "git fetch",
+      "description": "Downloads objects and references from a remote repository without merging."
+    },
+    {
+      "title": "git merge <branch_name>",
+      "description": "Merges changes from the specified branch into the current branch."
+    },
+    {
+      "title": "git log",
+      "description": "Displays the commit history of the repository."
+    },
+    {
+      "title": "git diff",
+      "description": "Shows differences between the working directory and staged changes."
+    }
+  ],
+  "BRANCHING_GIT": [
+    {
+      "title": "git branch",
+      "description": "Lists all branches in the repository."
+    },
+    {
+      "title": "git branch <branch_name>",
+      "description": "Creates a new branch."
+    },
+    {
+      "title": "git checkout <branch_name>",
+      "description": "Switches to an existing branch."
+    },
+    {
+      "title": "git checkout -b <branch_name>",
+      "description": "Creates a new branch and switches to it."
+    },
+    {
+      "title": "git merge <branch_name>",
+      "description": "Merges the specified branch into the current branch."
+    },
+    {
+      "title": "git rebase <branch_name>",
+      "description": "Reapplies commits from one branch onto another branch."
+    },
+    {
+      "title": "git branch -d <branch_name>",
+      "description": "Deletes the specified local branch."
+    },
+    {
+      "title": "git branch -D <branch_name>",
+      "description": "Force deletes the specified local branch."
+    },
+    {
+      "title": "git remote set-head origin <branch_name>",
+      "description": "Sets the default branch for the remote repository."
+    }
+  ]
+}

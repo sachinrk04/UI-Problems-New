@@ -25,6 +25,8 @@ import TaskManagmentIII from "./pages/UIProblems/TaskManagmentIII";
 import TrafficLight from "./pages/UIProblems/TrafficLight";
 import TrafficLightII from "./pages/UIProblems/TrafficLightII";
 import GitPage from "./pages/GitPage";
+import BasicGitCommands from "./pages/GitPage/BasicGitCommands";
+import BranchingCommands from "./pages/GitPage/BranchingCommands";
 
 function App() {
   return (
@@ -55,7 +57,10 @@ function App() {
             <Route path="traffic-light" element={<TrafficLight />} />
             <Route path="traffic-light-ii" element={<TrafficLightII />} />
           </Route>
-          <Route path="git" element={<GitPage />} />
+          <Route path="git" element={<GitPage />}>
+            <Route path="basic-git-commands" element={<BasicGitCommands />} />
+            <Route path="branching-git-commands" element={<BranchingCommands />} />
+          </Route>
         </Route>
       </Routes>
       <Toaster richColors position="top-center" />

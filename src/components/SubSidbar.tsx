@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 interface SubSidbarRoute {
   name: string;
   href: string;
-  description?: string;
+  sideDescription?: string;
   icon: React.ElementType;
 }
 
@@ -36,29 +36,29 @@ const SubSidbar = ({
               <Link
                 key={route.name}
                 to={route.href}
-                className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                className={`flex justify-center flex-col gap-y-1 px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                   isActive
                     ? "bg-primary/10 text-primary"
                     : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                 } ${isLast ? "mb-2" : ""} ${isActive ? "bg-blue-100" : ""}`}
               >
-                <route.icon
-                  className={`mr-3 h-5 w-5 ${
-                    isActive ? "text-primary" : "text-gray-400"
-                  }`}
-                />
-                <div>
+                <div className="flex items-center">
+                  <route.icon
+                    className={`mr-2 h-5 w-5 ${
+                      isActive ? "text-primary" : "text-gray-400"
+                    }`}
+                  />
                   <div className="font-medium">{route?.name}</div>
-                  {route?.description && (
+                </div>
+                {route?.sideDescription && (
                     <div
                       className={`text-xs ${
                         isActive ? "text-primary/70" : "text-gray-400"
                       }`}
                     >
-                      {route?.description}
+                      {route?.sideDescription}
                     </div>
                   )}
-                </div>
               </Link>
             );
           })}
