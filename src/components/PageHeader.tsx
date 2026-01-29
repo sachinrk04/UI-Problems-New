@@ -7,7 +7,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
   return (
     <div>
       <div className="flex items-center">
-        <h1 className="inline-block text-xl font-bold tracking-tight sm:text-2xl text-primary">
+        <h1 className="inline-block text-lg font-bold tracking-tight sm:text-xl text-primary">
           {title}
         </h1>
       </div>

@@ -4,10 +4,12 @@ import {
   Folders,
   Grid2x2X,
   Grid3x3,
+  LayoutGrid,
   ListTodoIcon,
   SignatureIcon,
   SignpostBigIcon,
   Square,
+  Star,
   Users2,
 } from "lucide-react";
 
@@ -15,7 +17,7 @@ export const uiProblemRoutes = [
   {
     name: "Get Started",
     href: "/ui-problems",
-    icon: Folder,
+    icon: LayoutGrid,
     sideDescription: "",
     pageDescription: "",
   },
@@ -30,6 +32,13 @@ export const uiProblemRoutes = [
     name: "Explorer II",
     href: "/ui-problems/explorer-two",
     icon: Folders,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Star Rating",
+    href: "/ui-problems/star-rating",
+    icon: Star,
     sideDescription: "",
     pageDescription: "",
   },

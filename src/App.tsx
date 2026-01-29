@@ -29,6 +29,7 @@ import BasicGitCommands from "./pages/GitPage/BasicGitCommands";
 import BranchingCommands from "./pages/GitPage/BranchingCommands";
 import RemoteCommands from "./pages/GitPage/RemoteCommands";
 import StagingAndCommitting from "./pages/GitPage/StagingAndCommitting";
+import StarRating from "./pages/UIProblems/StarRating";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="ui-problems" element={<UIProblems />}>
             <Route path="explorer-one" element={<FolderFileExplorerOne />} />
             <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
+            <Route path="star-rating" element={<StarRating />} />
             <Route path="task-managment" element={<TaskManagment />} />
             <Route path="task-managment-ii" element={<TaskManagmentII />} />
             <Route path="task-managment-iii" element={<TaskManagmentIII />} />
