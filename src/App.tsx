@@ -27,6 +27,8 @@ import TrafficLightII from "./pages/UIProblems/TrafficLightII";
 import GitPage from "./pages/GitPage";
 import BasicGitCommands from "./pages/GitPage/BasicGitCommands";
 import BranchingCommands from "./pages/GitPage/BranchingCommands";
+import RemoteCommands from "./pages/GitPage/RemoteCommands";
+import StagingAndCommitting from "./pages/GitPage/StagingAndCommitting";
 
 function App() {
   return (
@@ -60,6 +62,8 @@ function App() {
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />
             <Route path="branching-git-commands" element={<BranchingCommands />} />
+            <Route path="remote-git-commands" element={<RemoteCommands />} />
+            <Route path="staging-and-committing" element={<StagingAndCommitting />} />
           </Route>
         </Route>
       </Routes>

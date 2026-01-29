@@ -13,6 +13,13 @@ import {
 
 export const uiProblemRoutes = [
   {
+    name: "Get Started",
+    href: "/ui-problems",
+    icon: Folder,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
     name: "Explorer I",
     href: "/ui-problems/explorer-one",
     icon: Folder,

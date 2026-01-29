@@ -82,5 +82,85 @@
       "title": "git remote set-head origin <branch_name>",
       "description": "Sets the default branch for the remote repository."
     }
+  ],
+  "REMOTE_GIT": [
+    {
+      "title": "git remote -v",
+      "description": "Shows the URLs of remote repositories."
+    },
+    {
+      "title": "git remote add <name> <url>",
+      "description": "Adds a new remote repository."
+    },
+    {
+      "title": "git remote remove <name>",
+      "description": "Removes an existing remote repository."
+    },
+    {
+      "title": "git push origin <branch_name>",
+      "description": "Pushes the specified branch to the remote repository."
+    },
+    {
+      "title": "git push -u origin <branch_name>",
+      "description": "Pushes a branch to the remote repository and sets the upstream."
+    },
+    {
+      "title": "git pull origin <branch_name>",
+      "description": "Fetches and merges the specified branch from the remote repository."
+    },
+    {
+      "title": "git fetch origin",
+      "description": "Downloads objects and references from the remote repository without merging."
+    },
+    {
+      "title": "git remote show origin",
+      "description": "Displays detailed information about the remote repository."
+    }
+  ],
+  "STAGING_AND_COMMITTING": [
+    {
+      "title": "git add .",
+      "description": "Stages all modified files in the working directory."
+    },
+    {
+      "title": "git add -A",
+      "description": "Stages all changes including file deletions."
+    },
+    {
+      "title": "git reset",
+      "description": "Unstages a file (reverts it to the working directory)."
+    },
+    {
+      "title": "git reset <file>",
+      "description": "Removes a file from the staging area while keeping its changes in the working directory."
+    },
+    {
+      "title": "git commit -m \"message\"",
+      "description": "Commits staged changes to the local repository with a message."
+    },
+    {
+      "title": "git commit --amend",
+      "description": "Modifies the most recent commit (message or content)."
+    },
+    {
+      "title": "git commit --all",
+      "description": "Automatically stages tracked files and commits them."
+    },
+    {
+      "title": "git commit -a",
+      "description": "Stages and commits all tracked modified files."
+    },
+    {
+      "title": "git commit --no-verify",
+      "description": "Commits changes without running pre-commit hooks."
+    },
+    {
+      "title": "git reset --soft HEAD~1",
+      "description": "Moves HEAD back one commit and keeps changes staged."
+    },
+    {
+      "title": "git reset --hard HEAD~1",
+      "description": "Moves HEAD back one commit and discards all changes."
+    }
   ]
 }
