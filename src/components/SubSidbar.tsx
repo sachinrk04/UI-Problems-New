@@ -43,22 +43,24 @@ const SubSidbar = ({
                 } ${isLast ? "mb-2" : ""} ${isActive ? "bg-blue-100" : ""}`}
               >
                 <div className="flex items-center">
-                  <route.icon
-                    className={`mr-2 h-5 w-5 ${
-                      isActive ? "text-primary" : "text-gray-400"
-                    }`}
-                  />
+                  {route.icon && (
+                    <route.icon
+                      className={`mr-2 h-5 w-5 ${
+                        isActive ? "text-primary" : "text-gray-400"
+                      }`}
+                    />
+                  )}
                   <div className="font-medium">{route?.name}</div>
                 </div>
                 {route?.sideDescription && (
-                    <div
-                      className={`text-xs ${
-                        isActive ? "text-primary/70" : "text-gray-400"
-                      }`}
-                    >
-                      {route?.sideDescription}
-                    </div>
-                  )}
+                  <div
+                    className={`text-xs ${
+                      isActive ? "text-primary/70" : "text-gray-400"
+                    }`}
+                  >
+                    {route?.sideDescription}
+                  </div>
+                )}
               </Link>
             );
           })}
