@@ -1,4 +1,4 @@
-import { Home, Package } from "lucide-react";
+import { FolderGit, Home, Package } from "lucide-react";
 
 export const mainRoutes = [
   {
@@ -11,6 +11,12 @@ export const mainRoutes = [
     name: "UI-Problems",
     icon: Package,
     href: "/ui-problems",
+    children: [],
+  },
+  {
+    name: "Git",
+    icon: FolderGit,
+    href: "/git",
     children: [],
   },
 ];

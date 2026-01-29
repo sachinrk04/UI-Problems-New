@@ -24,6 +24,7 @@ import TaskManagmentII from "./pages/UIProblems/TaskManagmentII";
 import TaskManagmentIII from "./pages/UIProblems/TaskManagmentIII";
 import TrafficLight from "./pages/UIProblems/TrafficLight";
 import TrafficLightII from "./pages/UIProblems/TrafficLightII";
+import GitPage from "./pages/GitPage";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
             <Route path="traffic-light" element={<TrafficLight />} />
             <Route path="traffic-light-ii" element={<TrafficLightII />} />
           </Route>
+          <Route path="git" element={<GitPage />} />
         </Route>
       </Routes>
       <Toaster richColors position="top-center" />
