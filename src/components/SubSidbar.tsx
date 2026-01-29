@@ -4,7 +4,7 @@ interface SubSidbarRoute {
   name: string;
   href: string;
   sideDescription?: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
 }
 
 const SubSidbar = ({
