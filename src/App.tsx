@@ -30,6 +30,7 @@ import BranchingCommands from "./pages/GitPage/BranchingCommands";
 import RemoteCommands from "./pages/GitPage/RemoteCommands";
 import StagingAndCommitting from "./pages/GitPage/StagingAndCommitting";
 import StarRating from "./pages/UIProblems/StarRating";
+import NestedBox from "./pages/UIProblems/NestedBox";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="explorer-one" element={<FolderFileExplorerOne />} />
             <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
             <Route path="star-rating" element={<StarRating />} />
+            <Route path="nested-box" element={<NestedBox />} />
             <Route path="task-managment" element={<TaskManagment />} />
             <Route path="task-managment-ii" element={<TaskManagmentII />} />
             <Route path="task-managment-iii" element={<TaskManagmentIII />} />
@@ -63,9 +65,15 @@ function App() {
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />
-            <Route path="branching-git-commands" element={<BranchingCommands />} />
+            <Route
+              path="branching-git-commands"
+              element={<BranchingCommands />}
+            />
             <Route path="remote-git-commands" element={<RemoteCommands />} />
-            <Route path="staging-and-committing" element={<StagingAndCommitting />} />
+            <Route
+              path="staging-and-committing"
+              element={<StagingAndCommitting />}
+            />
           </Route>
         </Route>
       </Routes>

@@ -25,19 +25,19 @@ const TrafficLight = () => {
         <div className="flex flex-col items-center justify-center gap-4">
           <div className={`flex flex-col gap-4 p-3 bg-gray-900 rounded-md`}>
             <div
-              className={`w-16 h-16 bg-${
-                activeLight === "RED" ? "red" : "gray"
-              }-500 rounded-full`}
+              className={`w-16 h-16 ${
+                activeLight === "RED" ? "bg-red-500" : "bg-gray-500"
+              } rounded-full`}
             />
             <div
-              className={`w-16 h-16 bg-${
-                activeLight === "YELLOW" ? "yellow" : "gray"
-              }-500 rounded-full`}
+              className={`w-16 h-16 ${
+                activeLight === "YELLOW" ? "bg-yellow-500" : "bg-gray-500"
+              } rounded-full`}
             />
             <div
-              className={`w-16 h-16 bg-${
-                activeLight === "GREEN" ? "green" : "gray"
-              }-500 rounded-full`}
+              className={`w-16 h-16 ${
+                activeLight === "GREEN" ? "bg-green-500" : "bg-gray-500"
+              } rounded-full`}
             />
           </div>
         </div>

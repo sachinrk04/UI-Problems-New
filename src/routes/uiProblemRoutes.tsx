@@ -1,4 +1,5 @@
 import {
+  Box,
   Dice6Icon,
   Folder,
   Folders,
@@ -22,14 +23,14 @@ export const uiProblemRoutes = [
     pageDescription: "",
   },
   {
-    name: "Explorer I",
+    name: "File Explorer I",
     href: "/ui-problems/explorer-one",
     icon: Folder,
     sideDescription: "",
     pageDescription: "",
   },
   {
-    name: "Explorer II",
+    name: "File Explorer II",
     href: "/ui-problems/explorer-two",
     icon: Folders,
     sideDescription: "",
@@ -39,6 +40,13 @@ export const uiProblemRoutes = [
     name: "Star Rating",
     href: "/ui-problems/star-rating",
     icon: Star,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Nested Box",
+    href: "/ui-problems/nested-box",
+    icon: Box,
     sideDescription: "",
     pageDescription: "",
   },

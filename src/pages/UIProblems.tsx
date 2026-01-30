@@ -14,7 +14,7 @@ const UIProblems = () => {
         <>
           {isParentPath ? (
             <div className="h-[calc(100vh-4rem)] overflow-auto">
-              <UIProblemsComponents uiComponents={uiProblemRoutes} />
+              <UIProblemsComponents uiComponents={uiProblemRoutes.slice(1)} />
               <Footer />
             </div>
           ) : (
@@ -26,7 +26,7 @@ const UIProblems = () => {
         </>
       </main>
       <div className="calc(100vh-4rem) overflow-auto">
-        <SubSidbar subSidbarRoutes={uiProblemRoutes} title="Ui Probems" />
+        <SubSidbar subSidbarRoutes={uiProblemRoutes} />
       </div>
     </div>
   );

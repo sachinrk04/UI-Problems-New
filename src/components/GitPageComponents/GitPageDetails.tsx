@@ -24,9 +24,7 @@ const GitPageDetails = ({
             <GitCommandsAndDetails dataLists={dataLists} />
           )}
         </div>
-        <div className="h-[calc(100vh-11rem)] p-4 overflow-auto shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] rounded-md w-full">
-          
-        </div>
+        <div className="h-[calc(100vh-11rem)] p-4 overflow-auto shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] rounded-md w-full"></div>
       </div>
     </>
   );
