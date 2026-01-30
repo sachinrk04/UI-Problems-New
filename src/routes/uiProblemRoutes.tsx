@@ -1,4 +1,5 @@
 import {
+  BookOpen,
   Box,
   Dice6Icon,
   Folder,
@@ -68,6 +69,13 @@ export const uiProblemRoutes = [
     name: "Task Managment - III",
     href: "/ui-problems/task-managment-iii",
     icon: ListTodoIcon,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Pagination",
+    href: "/ui-problems/pagination",
+    icon: BookOpen,
     sideDescription: "",
     pageDescription: "",
   },
