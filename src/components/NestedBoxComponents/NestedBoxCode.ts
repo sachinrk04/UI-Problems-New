@@ -1,4 +1,5 @@
-export const NestedBoxCode = `
+export const nestedBoxCode = {
+  JAVASCRIPT: `
 import { useState } from "react";
 
 const NestedBox = () => {
@@ -21,4 +22,5 @@ const NestedBox = () => {
 };
 
 export default NestedBox;
-`;
+`
+};

@@ -1,4 +1,5 @@
-export const starRatingJSCode = `
+export const starRatingCode = {
+  JAVASCRIPT : `
 import { useState } from "react";
 
 const StarRating = ({ limit = 5, rated = 2 }) => {
@@ -13,7 +14,7 @@ const StarRating = ({ limit = 5, rated = 2 }) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       {Array.from({ length: limit }, (_, i) => (
         <span
           key={i}
@@ -28,9 +29,8 @@ const StarRating = ({ limit = 5, rated = 2 }) => {
 };
 
 export default StarRating;
-`;
-
-export const starRatingTSCode = `
+`,
+TYPESCRIPT : `
 import { useState } from "react";
 
 interface StarRatingProps {
@@ -50,7 +50,7 @@ const StarRating = ({ limit = 5, rated = 2 }: StarRatingOneProps) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       {Array.from({ length: limit }, (_, i) => (
         <span
           key={i}
@@ -65,4 +65,5 @@ const StarRating = ({ limit = 5, rated = 2 }: StarRatingOneProps) => {
 };
 
 export default StarRating;
-`;
+`
+};
