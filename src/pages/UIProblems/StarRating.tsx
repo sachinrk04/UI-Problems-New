@@ -9,7 +9,7 @@ import StarRatingOne from "@/components/StarRatingComponents/StarRatingOne";
 const StarRating = () => {
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
-      <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
+      <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_20px_rgba(0,0,0,0.10)]">
         <PageHeader
           title="Star Rating"
           description="Star Rating usually refers to a UI pattern/component that lets users view or give ratings using stars"

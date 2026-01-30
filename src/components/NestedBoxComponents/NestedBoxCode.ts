@@ -15,7 +15,7 @@ const NestedBox = () => {
         className="w-8 h-8 border-2 border-gray-500 cursor-pointer"
         onClick={handleBox}
       ></div>
-      <div className="ml-8 my-2">{box}</div>
+      <div className="my-1 ml-8">{box}</div>
     </div>
   );
 };
