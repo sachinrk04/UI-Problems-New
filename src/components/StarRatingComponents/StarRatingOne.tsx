@@ -17,7 +17,7 @@ const StarRatingOne = ({ limit = 5, rated = 2 }: StarRatingOneProps) => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center">
       {Array.from({ length: limit }, (_, i) => (
         <span
           key={i}
