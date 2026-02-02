@@ -33,6 +33,7 @@ import StarRating from "./pages/UIProblems/StarRating";
 import NestedBox from "./pages/UIProblems/NestedBox";
 import PaginationPage from "./pages/UIProblems/PaginationPage";
 import InfiniteScrollPage from "./pages/UIProblems/InfiniteScrollPage";
+import StopwatchPage from "./pages/UIProblems/StopwatchPage";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             <Route path="task-managment-iii" element={<TaskManagmentIII />} />
             <Route path="pagination" element={<PaginationPage />} />
             <Route path="infinite-scroll" element={<InfiniteScrollPage />} />
+            <Route path="stopwatch" element={<StopwatchPage />} />
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />

@@ -13,6 +13,7 @@ import {
   SignpostBigIcon,
   Square,
   Star,
+  Timer,
   Users2,
 } from "lucide-react";
 
@@ -84,6 +85,13 @@ export const uiProblemRoutes = [
     name: "Infinite Scroll",
     href: "/ui-problems/infinite-scroll",
     icon: GalleryVertical,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Stopwatch",
+    href: "/ui-problems/stopwatch",
+    icon: Timer,
     sideDescription: "",
     pageDescription: "",
   },
