@@ -32,6 +32,7 @@ import StagingAndCommitting from "./pages/GitPage/StagingAndCommitting";
 import StarRating from "./pages/UIProblems/StarRating";
 import NestedBox from "./pages/UIProblems/NestedBox";
 import PaginationPage from "./pages/UIProblems/PaginationPage";
+import InfiniteScrollPage from "./pages/UIProblems/InfiniteScrollPage";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="task-managment-ii" element={<TaskManagmentII />} />
             <Route path="task-managment-iii" element={<TaskManagmentIII />} />
             <Route path="pagination" element={<PaginationPage />} />
+            <Route path="infinite-scroll" element={<InfiniteScrollPage />} />
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />
