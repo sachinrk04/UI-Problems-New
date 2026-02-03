@@ -14,6 +14,7 @@ import {
   Square,
   Star,
   Timer,
+  TimerReset,
   Users2,
 } from "lucide-react";
 
@@ -106,6 +107,13 @@ export const uiProblemRoutes = [
     name: "OTP Input",
     href: "/ui-problems/otp-input",
     icon: SignatureIcon,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Debounce Input",
+    href: "/ui-problems/debounce-input",
+    icon: TimerReset,
     sideDescription: "",
     pageDescription: "",
   },

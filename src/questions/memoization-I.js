@@ -4,7 +4,7 @@ const memoization = (fun) => {
     return function(...args) {
         const key = JSON.stringify(args);
         if (cache[key]) return cache[key];
-        const output = fun(...args);
+        const output = func.apply(this, args);
         cache[key] = output;
         return output;
     };

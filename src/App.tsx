@@ -34,6 +34,7 @@ import NestedBox from "./pages/UIProblems/NestedBox";
 import PaginationPage from "./pages/UIProblems/PaginationPage";
 import InfiniteScrollPage from "./pages/UIProblems/InfiniteScrollPage";
 import StopwatchPage from "./pages/UIProblems/StopwatchPage";
+import DebounceInput from "./pages/UIProblems/DebounceInput";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
             <Route path="stopwatch" element={<StopwatchPage />} />
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
+            <Route path="debounce-input" element={<DebounceInput />} />
             <Route path="tic-tac-toe" element={<TicTacToe />} />
             <Route path="tic-tac-toe-ii" element={<TicTacToeII />} />
             <Route path="tic-tac-toe-iii" element={<TicTacToeIII />} />
