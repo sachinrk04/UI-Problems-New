@@ -46,7 +46,22 @@
 //  3. Since exactly one solution exists, the loop will always return.
 // ---------------------------------------------------------
 // ---------------------------------------------------------
-function twoSum(numbers, target) {}
+function twoSum(numbers, target) {
+  let left = 0;
+  let right = numbers.length - 1;
+
+  while (left < right) {
+    const sum = numbers[left] + numbers[right];
+
+    if (sum === target) {
+      return [left + 1, right + 1];
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+}
 // ---------------------------------------------------------
 // Example
 const numbers = [2, 7, 11, 15],
@@ -56,7 +71,7 @@ const numbers = [2, 7, 11, 15],
 // ---------------------------------------------------------
 // const numbers = [-1,0], target = -1
 // ---------------------------------------------------------
-
+console.log("twoSum--->", twoSum(numbers, target));
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // Dry Run (Example)
