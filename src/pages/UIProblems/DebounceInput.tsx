@@ -1,4 +1,7 @@
-import PageHeader from '@/components/PageHeader';
+import DebounceOne from "@/components/DebounceComponents/DebounceOne";
+import DebounceThree from "@/components/DebounceComponents/DebounceThree";
+import DebounceTwo from "@/components/DebounceComponents/DebounceTwo";
+import PageHeader from "@/components/PageHeader";
 
 const DebounceInput = () => {
   return (
@@ -9,11 +12,13 @@ const DebounceInput = () => {
 
       <div className="flex gap-4">
         <div className="h-[calc(100vh-10rem)] overflow-auto shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] rounded-md w-full flex flex-col">
-          DebounceInput
+          <DebounceOne />
+          <DebounceTwo />
+          <DebounceThree />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default DebounceInput;

@@ -2,13 +2,10 @@ import CodeBlock from "@/components/CodeBlock";
 import PageHeader from "@/components/PageHeader";
 import HalfStar from "@/components/StarRatingComponents/HalfStar";
 import { halfStarRatingCode } from "@/components/StarRatingComponents/halfStarRatingCode";
-import {
-  starRatingCode,
-} from "@/components/StarRatingComponents/StarRatingCode";
+import { starRatingCode } from "@/components/StarRatingComponents/StarRatingCode";
 import StarRatingOne from "@/components/StarRatingComponents/StarRatingOne";
 
 const StarRating = () => {
-
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
       <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_20px_rgba(0,0,0,0.10)]">
