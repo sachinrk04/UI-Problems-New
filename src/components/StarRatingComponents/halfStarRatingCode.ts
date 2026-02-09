@@ -37,9 +37,13 @@ export default HalfStar;
 
 const Half = () => {
   return (
-    <span className="relative inline-block text-3xl text-gray-300">
+    <span 
+      className="relative inline-block text-3xl text-gray-300"
+    >
       ☆
-      <span className="absolute top-0 left-0 w-1/2 overflow-hidden text-orange-500">
+      <span 
+        className="absolute top-0 left-0 w-1/2 overflow-hidden text-orange-500"
+      >
         ★
       </span>
     </span>
@@ -93,9 +97,13 @@ export default HalfStar;
 
 const Half = () => {
   return (
-    <span className="relative inline-block text-3xl text-gray-300">
+    <span 
+      className="relative inline-block text-3xl text-gray-300"
+    >
       ☆
-      <span className="absolute top-0 left-0 w-1/2 overflow-hidden text-orange-500">
+      <span 
+        className="absolute top-0 left-0 w-1/2 overflow-hidden text-orange-500"
+      >
         ★
       </span>
     </span>

@@ -1,3 +1,5 @@
+import CodeBlock from "@/components/CodeBlock";
+import { debounceCode } from "@/components/DebounceComponents/DebounceCode";
 import DebounceOne from "@/components/DebounceComponents/DebounceOne";
 import DebounceThree from "@/components/DebounceComponents/DebounceThree";
 import DebounceTwo from "@/components/DebounceComponents/DebounceTwo";
@@ -12,7 +14,21 @@ const DebounceInput = () => {
 
       <div className="flex gap-4">
         <div className="h-[calc(100vh-10rem)] overflow-auto shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] rounded-md w-full flex flex-col">
-          <DebounceOne />
+          <div className="flex">
+            <div className="p-4 w-1/2">
+              <div className="h-full space-y-3">
+                <h3 className="font-semibold text-lg text-gray-700 ">
+                  Debounce
+                </h3>
+                <div className="h-[96.5%]">
+                  <DebounceOne />
+                </div>
+              </div>
+            </div>
+            <div className="p-4 w-1/2">
+              <CodeBlock code={debounceCode} />
+            </div>
+          </div>
           <DebounceTwo />
           <DebounceThree />
         </div>

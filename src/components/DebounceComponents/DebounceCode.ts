@@ -1,3 +1,5 @@
+export const debounceCode = {
+  JAVASCRIPT: `
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 
@@ -20,15 +22,19 @@ const DebounceOne = () => {
   }, [debounceValue]);
 
   return (
-    <div className="">
-      <Input
-        className="w-1/2"
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+    <div className="p-4">
+      <div className="flex justify-center">
+        <Input
+          className="w-2/6"
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </div>
     </div>
   );
 };
 
 export default DebounceOne;
+`,
+};

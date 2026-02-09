@@ -34,7 +34,7 @@ const CodeBlock = ({ code }: { code: any }) => {
           {code[language]?.length > 0 && <CopyCode code={code[language]} />}
         </div>
       </div>
-      <pre className="p-4 overflow-auto text-sm font-medium text-gray-700 rounded pt-9 bg-primary/5">
+      <pre className="p-4 overflow-auto text-xs font-medium text-gray-700 rounded pt-9 bg-primary/5">
         {code[language]?.length > 0 ? (
           <code>{code[language]}</code>
         ) : (

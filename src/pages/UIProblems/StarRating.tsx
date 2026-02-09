@@ -18,33 +18,33 @@ const StarRating = () => {
       <div className="flex gap-4">
         <div className="h-[calc(100vh-11rem)] overflow-auto shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] rounded-md w-full flex flex-col">
           <div className="flex">
-            <div className="p-4 w-[30%]">
-              <div className="h-full">
-                <h3 className="font-semibold text-center text-gray-500 ">
+            <div className="p-4 w-1/2">
+              <div className="h-full space-y-3">
+                <h3 className="font-semibold text-lg text-gray-700 ">
                   Full Star Supported
                 </h3>
-                <div className="flex items-center justify-center h-[96%]">
+                <div className="flex justify-center h-[96%]">
                   <StarRatingOne limit={5} rated={2} />
                 </div>
               </div>
             </div>
-            <div className="p-4 w-[70%]">
+            <div className="p-4 w-1/2">
               <CodeBlock code={starRatingCode} />
             </div>
           </div>
           <div className="w-full border" />
           <div className="flex">
-            <div className="p-4 w-[30%]">
-              <div className="h-full">
-                <h3 className="font-semibold text-center text-gray-500 ">
+            <div className="p-4 w-1/2">
+              <div className="h-full space-y-3">
+                <h3 className="font-semibold text-lg text-gray-700 ">
                   Half-Star Supported
                 </h3>
-                <div className="flex items-center justify-center h-[96%]">
+                <div className="flex justify-center h-[96%]">
                   <HalfStar limit={5} rated={2.5} />
                 </div>
               </div>
             </div>
-            <div className="p-4 w-[70%]">
+            <div className="p-4 w-1/2">
               <CodeBlock code={halfStarRatingCode} />
             </div>
           </div>
