@@ -69,15 +69,19 @@ const p2 = new Promise((resolve, reject) => {
 });
 
 // const output = await promiseAll([p0, p1, p2]); // [3, 42, 'foo']
-// console.log("output--->", output);
+// console.log("output--->",  output);
 
-promiseAll([p0, p1, p2]).then((output) => {
-  console.log("output--->", output);
-});
+promiseAll([p0, p1, p2])
+  .then((output) => console.log("output--->", output))
+  .catch ((err) => console.log("error--->", err))
 
 async function run() {
-  const output = await promiseAll([p0, p1, p2]);
-  console.log("output-run-->", output);
+  try {
+    const output = await promiseAll([p0, p1, p2]);
+    console.log("output-run-->", output);
+  } catch (err) {
+    console.log("error--->", err);
+  }
 }
 
 run();
