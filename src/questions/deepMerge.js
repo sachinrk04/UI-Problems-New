@@ -10,7 +10,56 @@
 // The input objects should not be modified.
 
 function deepMerge(valA, valB) {
-  throw "Not implemented";
+  if (!isObject(valA)) return clone(valB);
+  if (!isObject(valB)) return clone(valB);
+
+  const result = {};
+
+  const keys = new Set([...Object.keys(valA), ...Object.keys(valB)]);
+
+  for (const key of keys) {
+    const aValue = valA[key];
+    const bValue = valB[key];
+
+    // Key only in A
+    if (!(key in valB)) {
+      result[key] = clone(aValue);
+      continue;
+    }
+
+    // Key only in B
+    if (!(key in valA)) {
+      result[key] = clone(bValue);
+      continue;
+    }
+
+    // Both arrays → append
+    if (Array.isArray(aValue) && Array.isArray(bValue)) {
+      result[key] = [...clone(aValue), ...clone(bValue)];
+      continue;
+    }
+
+    // Both objects → deep merge
+    if (isObject(aValue) && isObject(bValue)) {
+      result[key] = deepMerge(aValue, bValue);
+      continue;
+    }
+
+    // Otherwise → B overrides
+    result[key] = clone(bValue);
+  }
+
+  return result;
+}
+
+function isObject(val) {
+  return val !== null && typeof val === "object" && !Array.isArray(val);
+}
+
+function clone(val) {
+  if (Array.isArray(val)) return val.map(clone);
+  if (isObject(val)) return deepMerge({}, val);
+  return val;
 }
 
 // Examples
