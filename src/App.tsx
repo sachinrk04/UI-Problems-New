@@ -35,6 +35,7 @@ import PaginationPage from "./pages/UIProblems/PaginationPage";
 import InfiniteScrollPage from "./pages/UIProblems/InfiniteScrollPage";
 import StopwatchPage from "./pages/UIProblems/StopwatchPage";
 import DebounceInput from "./pages/UIProblems/DebounceInput";
+import ChatPage from "./pages/UIProblems/ChatPage";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             <Route path="pagination" element={<PaginationPage />} />
             <Route path="infinite-scroll" element={<InfiniteScrollPage />} />
             <Route path="stopwatch" element={<StopwatchPage />} />
+            <Route path="chat" element={<ChatPage />} />
             <Route path="mc-quiz-app" element={<MCQuizApp />} />
             <Route path="otp-input" element={<OtpInput />} />
             <Route path="debounce-input" element={<DebounceInput />} />
