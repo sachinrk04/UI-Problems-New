@@ -21,7 +21,7 @@ const getData = async (startValue, endValue, limit, noOFParallelCalls) => {
   // Step 2: process in parallel batches
   for (let i = 0; i < ranges.length; i += noOFParallelCalls) {
     const batch = ranges.slice(i, i + noOFParallelCalls);
-
+    
     const responses = await Promise.all(
       batch.map(([s, e]) => apiSimulater(s, e)),
     );
@@ -37,6 +37,6 @@ getData(2, 17, 5, 3).then((data) => console.log(data));
 // size : [2, 6] = [start, end]
 // size : [7, 11] = [start, end]
 // size : [12, 16] = [start, end]
-// size : [17] = [start, end]
+// size : [17] = [start, end] not include parallel call because limit is 3
 
 // output : [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
