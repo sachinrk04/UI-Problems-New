@@ -36,6 +36,8 @@ import InfiniteScrollPage from "./pages/UIProblems/InfiniteScrollPage";
 import StopwatchPage from "./pages/UIProblems/StopwatchPage";
 import DebounceInput from "./pages/UIProblems/DebounceInput";
 import ChatPage from "./pages/UIProblems/ChatPage";
+import BirthYearHistogramPage from "./pages/UIProblems/BirthYearHistogramPage";
+import AutocompletePage from "./pages/UIProblems/AutocompletePage";
 
 function App() {
   return (
@@ -44,6 +46,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="ui-problems" element={<UIProblems />}>
+            <Route path="autocomplete" element={<AutocompletePage />} />
             <Route path="explorer-one" element={<FolderFileExplorerOne />} />
             <Route path="explorer-two" element={<FolderFileExplorerTwo />} />
             <Route path="star-rating" element={<StarRating />} />
@@ -72,6 +75,7 @@ function App() {
             <Route path="grid-lights-iii" element={<GridLightsIII />} />
             <Route path="traffic-light" element={<TrafficLight />} />
             <Route path="traffic-light-ii" element={<TrafficLightII />} />
+            <Route path="birth-year-histogram" element={<BirthYearHistogramPage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />
