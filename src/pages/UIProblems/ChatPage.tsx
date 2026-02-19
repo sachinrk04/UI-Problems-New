@@ -7,11 +7,11 @@ import PageHeader from "@/components/PageHeader";
 const MAX_MESSAGES = 200;
 
 const ChatPage = () => {
-    const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<any[]>([]);
 
   // Stable reference to prevent unnecessary re-renders
   const handleIncomingMessage = useCallback((message: any) => {
-    setMessages(prev => {
+    setMessages((prev) => {
       const updated = [...prev, message];
 
       // Prevent memory growth (like Twitch)
@@ -22,7 +22,7 @@ const ChatPage = () => {
     });
   }, []);
 
-//   useMockStream(handleIncomingMessage);
+  //   useMockStream(handleIncomingMessage);
 
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">

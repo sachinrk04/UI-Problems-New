@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
+import { useState } from "react";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const ChatInput = ({ onSend }: any) => {
   const [text, setText] = useState("");
@@ -35,6 +35,6 @@ const ChatInput = ({ onSend }: any) => {
       </Button>
     </div>
   );
-}
+};
 
 export default ChatInput;
