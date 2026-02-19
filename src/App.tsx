@@ -38,6 +38,7 @@ import DebounceInput from "./pages/UIProblems/DebounceInput";
 import ChatPage from "./pages/UIProblems/ChatPage";
 import BirthYearHistogramPage from "./pages/UIProblems/BirthYearHistogramPage";
 import AutocompletePage from "./pages/UIProblems/AutocompletePage";
+import NestedCheckboxesPage from "./pages/UIProblems/NestedCheckboxesPage";
 
 function App() {
   return (
@@ -76,6 +77,7 @@ function App() {
             <Route path="traffic-light" element={<TrafficLight />} />
             <Route path="traffic-light-ii" element={<TrafficLightII />} />
             <Route path="birth-year-histogram" element={<BirthYearHistogramPage />} />
+            <Route path="nested-checkboxes" element={<NestedCheckboxesPage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />
