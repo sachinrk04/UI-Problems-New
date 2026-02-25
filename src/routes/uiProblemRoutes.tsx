@@ -20,6 +20,7 @@ import {
   Timer,
   TimerReset,
   Users2,
+  UtilityPole,
 } from "lucide-react";
 
 export const uiProblemRoutes = [
@@ -244,6 +245,13 @@ export const uiProblemRoutes = [
     name: "Nested Checkboxes",
     href: "/ui-problems/nested-checkboxes",
     icon: ListTreeIcon,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Tower Of Hanoi",
+    href: "/ui-problems/tower-of-hanoi",
+    icon: UtilityPole,
     sideDescription: "",
     pageDescription: "",
   },

@@ -8,7 +8,7 @@ const MultiSelect = () => {
   const multiSelectRef = useRef(null);
   const toggleOption = (value: any) => {
     setSelected((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
     );
   };
 

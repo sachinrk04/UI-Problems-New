@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Input } from "../ui/input";
 
 type Option = {
@@ -9,8 +9,10 @@ type Option = {
 const Autocomplete = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<Option[]>([]);
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const fetchUsers = async () => {
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -28,6 +30,7 @@ const Autocomplete = () => {
   useEffect(() => {
     if (!query) {
       setOptions([]);
+      setOpen(false);
       return;
     }
 
@@ -36,6 +39,7 @@ const Autocomplete = () => {
         user.title.toLowerCase().includes(query.toLowerCase()),
       );
       setOptions(responce);
+      setOpen(true);
     }, 500);
 
     return () => {
@@ -43,16 +47,42 @@ const Autocomplete = () => {
     };
   }, [query, data]);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleFocus = () => {
+    if (options.length > 0) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center gap-y-4">
-      <div className="relative w-1/2">
+      <div className="relative w-1/2" ref={containerRef}>
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full h-10 px-4 py-3 rounded-xl"
           placeholder="Search..."
+          onFocus={handleFocus}
         />
-        {options.length > 0 && (
+        {open && options.length > 0 && (
           <div className="absolute w-full bg-white border rounded-xl shadow mt-1 max-h-60 overflow-auto">
             {options.map((option) => (
               <div

@@ -28,20 +28,20 @@ const TaskManagmentIII = () => {
 
   const addTask = () => {
     const payload = {
-        id: `taskId-${Date.now()}`,
-        title: title.trim(),
-        userId: `userId-${Date.now()}`,
-        description: description.trim(),
-        status: "TODO",
-    }
+      id: `taskId-${Date.now()}`,
+      title: title.trim(),
+      userId: `userId-${Date.now()}`,
+      description: description.trim(),
+      status: "TODO",
+    };
 
     setTasks((prev) => {
-        return [...prev, payload]
-    })
-    
+      return [...prev, payload];
+    });
+
     setTitle("");
     setDescription("");
-  }
+  };
 
   const onDragStart = (taskId: string) => {
     setDraggingTaskId(taskId);
@@ -55,9 +55,9 @@ const TaskManagmentIII = () => {
     if (!draggingTaskId) return;
 
     setTasks((prev) => {
-        return prev.map((task) => {
-            return task.id === draggingTaskId ? { ...task, status } : task
-        })
+      return prev.map((task) => {
+        return task.id === draggingTaskId ? { ...task, status } : task;
+      });
     });
 
     setDraggingTaskId(null);

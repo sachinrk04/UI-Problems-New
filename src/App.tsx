@@ -39,6 +39,7 @@ import ChatPage from "./pages/UIProblems/ChatPage";
 import BirthYearHistogramPage from "./pages/UIProblems/BirthYearHistogramPage";
 import AutocompletePage from "./pages/UIProblems/AutocompletePage";
 import NestedCheckboxesPage from "./pages/UIProblems/NestedCheckboxesPage";
+import TowerOfHanoiPage from "./pages/UIProblems/TowerOfHanoiPage";
 
 function App() {
   return (
@@ -76,8 +77,15 @@ function App() {
             <Route path="grid-lights-iii" element={<GridLightsIII />} />
             <Route path="traffic-light" element={<TrafficLight />} />
             <Route path="traffic-light-ii" element={<TrafficLightII />} />
-            <Route path="birth-year-histogram" element={<BirthYearHistogramPage />} />
-            <Route path="nested-checkboxes" element={<NestedCheckboxesPage />} />
+            <Route
+              path="birth-year-histogram"
+              element={<BirthYearHistogramPage />}
+            />
+            <Route
+              path="nested-checkboxes"
+              element={<NestedCheckboxesPage />}
+            />
+            <Route path="tower-of-hanoi" element={<TowerOfHanoiPage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />
