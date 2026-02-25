@@ -90,3 +90,74 @@ Cracking the Low-Level Design (LLD) Round? Here are 20 questions you MUST prepar
 • Promise → Async/Await
 • Convert Callback Hell → Promise
 • Promise chaining → Async/Await
+
+-----------------------------------------------------------------------------------------------
+
+📌 **Phase 1 — Fundamentals (Must Master)**
+✅ HTML
+
+* Semantic HTML, Forms, Inputs, Accessibility
+* Local & Session Storage
+* SEO basics
+
+✅ CSS
+
+* Selectors, Specificity, Box Model
+* Flexbox & Grid
+* Positioning, Responsive Design
+
+✅ JavaScript
+
+* Closures, Scope, Hoisting
+* Arrays & Objects methods
+* Promises, Async/Await
+* ES6+ features
+
+✅ Web Basics
+
+* HTTP / HTTPS
+* REST APIs
+* Authentication & Security (CORS, CSRF, XSS)
+* Browser Rendering & Event Loop
+
+📌 **Phase 2 — DOM & Tooling**
+✅ DOM Manipulation & Events
+✅ Fetch / AJAX
+✅ Git (branching, merging, rebasing workflows)
+✅ Package managers & bundlers
+
+📌 **Phase 3 — React Core**
+✅ Components, Props, State
+✅ Hooks (useState, useEffect, useRef)
+✅ Forms & Event Handling
+✅ Context API
+✅ Performance Optimization
+✅ React Lifecycle & Reconciliation
+
+📌 **Phase 4 — React Ecosystem**
+✅ Routing
+✅ State Management (Redux / Zustand)
+✅ API Handling (Axios / TanStack Query)
+✅ Testing (Jest, React Testing Library)
+✅ Next.js Basics
+
+📌 **Phase 5 — Advanced Frontend**
+🔥 Design Patterns
+🔥 Performance Optimization
+🔥 SSR / CSR / SSG / ISR
+🔥 Microfrontends
+🔥 PWA & Web Security
+🔥 Accessibility & UX
+🔥 CI/CD & Architecture
+
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
