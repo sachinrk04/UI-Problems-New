@@ -255,4 +255,11 @@ export const uiProblemRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "Tower Of Hanoi II",
+    href: "/ui-problems/tower-of-hanoi-ii",
+    icon: UtilityPole,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];

@@ -1,12 +1,15 @@
 interface DiskProps {
-  size: number;
+  disk: number;
 }
 
-const Disk = ({ size }: DiskProps) => {
+const Disk = ({ disk }: DiskProps) => {
   return (
     <div
-      style={{ width: `${size === 1 ? 1.5 * 25 : size * 25}px` }}
-      className="h-5 bg-teal-500 rounded-lg border border-teal-900"
+      className="h-6 rounded-sm m-[0.5px] transition-all duration-500 z-0"
+      style={{
+        width: `${disk * 30}px`,
+        backgroundColor: `hsl(${disk * 40}, 70%, 50%)`,
+      }}
     />
   );
 };
