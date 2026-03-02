@@ -40,6 +40,9 @@ import BirthYearHistogramPage from "./pages/UIProblems/BirthYearHistogramPage";
 import AutocompletePage from "./pages/UIProblems/AutocompletePage";
 import NestedCheckboxesPage from "./pages/UIProblems/NestedCheckboxesPage";
 import TowerOfHanoiPage from "./pages/UIProblems/TowerOfHanoiPage";
+import TowerOfHanoiDnDII from "./pages/UIProblems/TowerOfHanoiDnDII";
+import ReactHooks from "./pages/ReactHooks";
+import UseCounter from "./pages/ReactHooks/useCounter";
 
 function App() {
   return (
@@ -86,6 +89,10 @@ function App() {
               element={<NestedCheckboxesPage />}
             />
             <Route path="tower-of-hanoi" element={<TowerOfHanoiPage />} />
+            <Route path="tower-of-hanoi-ii" element={<TowerOfHanoiDnDII />} />
+          </Route>
+          <Route path="react-hooks" element={<ReactHooks />}>
+            <Route path="use-counter" element={<UseCounter />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

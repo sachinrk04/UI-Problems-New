@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../PageHeader";
 
-const UIProblemsComponents = ({ uiComponents }: any) => {
-
+const ReactHooksComponent = ({hooksComponents}: any) => {
   return (
-    <div className="p-4 overflow-auto min-h-[calc(100vh-4rem)] flex flex-col gap-y-4">
+     <div className="p-4 overflow-auto min-h-[calc(100vh-4rem)] flex flex-col gap-y-4">
       <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
         <PageHeader
-          title="UI Problems"
-          description="UI Problems are a collection of problems that we have encountered in the past and how we have solved them."
+          title="React Hooks"
+          description="React built in and custom hooks"
         />
       </div>
-      <div className="grid grid-cols-3 gap-4 rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] p-4 min-h-[calc(100vh-11rem)]">
-        {uiComponents &&
-          uiComponents.length > 0 &&
-          uiComponents.map((route: any) => (
+      <div className="grid grid-cols-3 gap-4 rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] p-4">
+        {hooksComponents &&
+          hooksComponents.length > 0 &&
+          hooksComponents.map((route: any) => (
             <Link
               key={route.name}
               to={route.href}
@@ -34,6 +33,6 @@ const UIProblemsComponents = ({ uiComponents }: any) => {
       </div>
     </div>
   );
-};
+}
 
-export default UIProblemsComponents;
+export default ReactHooksComponent;
