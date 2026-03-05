@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
-import HighLightText from "@/components/highlightText";
+import HighLightText from "@/components/HighLightText";
 import { useCounterII } from "@/components/ReactHooksComponents/useCounterII";
 
 const UseCounterII = () => {

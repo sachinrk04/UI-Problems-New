@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import { MainLayout } from "./layouts/MainLayout";
+import { Toaster } from "./components/ui/sonner";
+import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import UIProblems from "./pages/UIProblems";
 import MCQuizApp from "./pages/UIProblems/MCQuizApp";
 import FolderFileExplorerOne from "./pages/UIProblems/FolderFileExplorerOne";
 import FolderFileExplorerTwo from "./pages/UIProblems/FolderFileExplorerTwo";
 import OtpInput from "./pages/UIProblems/OtpInput";
-import { Toaster } from "./components/ui/sonner";
 import TicTacToe from "./pages/UIProblems/TicTacToe";
 import TicTacToeII from "./pages/UIProblems/TicTacToeII";
 import TicTacToeIII from "./pages/UIProblems/TicTacToeIII";
@@ -42,8 +42,9 @@ import NestedCheckboxesPage from "./pages/UIProblems/NestedCheckboxesPage";
 import TowerOfHanoiPage from "./pages/UIProblems/TowerOfHanoiPage";
 import TowerOfHanoiDnDII from "./pages/UIProblems/TowerOfHanoiDnDII";
 import ReactHooks from "./pages/ReactHooks";
-import UseCounter from "./pages/ReactHooks/useCounter";
+import UseCounter from "./pages/ReactHooks/UseCounter";
 import UseCounterII from "./pages/ReactHooks/UseCounterII";
+import UseDebounce from "./pages/ReactHooks/UseDebounce";
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
           <Route path="react-hooks" element={<ReactHooks />}>
             <Route path="use-counter" element={<UseCounter />} />
             <Route path="use-counter-ii" element={<UseCounterII />} />
+            <Route path="use-debounce" element={<UseDebounce />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

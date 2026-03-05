@@ -1,7 +1,4 @@
-import {
-    ListStart,
-  Webhook,
-} from "lucide-react";
+import { ListStart, Webhook } from "lucide-react";
 
 export const reactHooksRoutes = [
   {
@@ -21,6 +18,13 @@ export const reactHooksRoutes = [
   {
     name: "useCounter II",
     href: "/react-hooks/use-counter-ii",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "useDebounce",
+    href: "/react-hooks/use-debounce",
     icon: Webhook,
     sideDescription: "",
     pageDescription: "",

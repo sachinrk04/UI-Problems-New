@@ -2,7 +2,7 @@
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { Outlet } from "react-router-dom";
-export function MainLayout() {
+function MainLayout() {
   return (
     <div className="min-h-screen overflow-y-scroll bg-gray-50 scrollbar-hide">
       <Header />
@@ -18,3 +18,5 @@ export function MainLayout() {
     </div>
   );
 }
+
+export default MainLayout;
