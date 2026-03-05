@@ -50,36 +50,33 @@ const SubSidbar = ({
                 to={route.href}
                 ref={isActive ? activeRef : null}
                 className={`flex flex-col gap-y-1 px-3 py-3 text-sm font-medium rounded-md transition-all duration-200 shadow-[0_2px_10px_rgba(0,0,0,0.10)] ${
-                    isActive
-                      ? "bg-primary/30 text-primary"
-                      : "text-gray-700 hover:bg-gray-200 hover:text-gray-700"
-                  } ${isLast ? "mb-2" : ""}`
-                }
+                  isActive
+                    ? "bg-primary/30 text-primary"
+                    : "text-gray-700 hover:bg-gray-200 hover:text-gray-700"
+                } ${isLast ? "mb-2" : ""}`}
               >
-                {({ isActive }) => (
-                  <>
-                    <div className="flex items-center">
-                      {route.icon && (
-                        <route.icon
-                          className={`mr-2 h-5 w-5 ${
-                            isActive ? "text-primary" : "text-gray-400"
-                          }`}
-                        />
-                      )}
-                      <div className="font-medium">{route?.name}</div>
-                    </div>
-
-                    {route.sideDescription && (
-                      <div
-                        className={`text-xs ${
-                          isActive ? "text-primary/70" : "text-gray-400"
+                <>
+                  <div className="flex items-center">
+                    {route?.icon && (
+                      <route.icon
+                        className={`mr-2 h-5 w-5 ${
+                          isActive ? "text-primary" : "text-gray-400"
                         }`}
-                      >
-                        {route.sideDescription}
-                      </div>
+                      />
                     )}
-                  </>
-                )}
+                    <div className="font-medium">{route?.name}</div>
+                  </div>
+
+                  {route.sideDescription && (
+                    <div
+                      className={`text-xs ${
+                        isActive ? "text-primary/70" : "text-gray-400"
+                      }`}
+                    >
+                      {route.sideDescription}
+                    </div>
+                  )}
+                </>
               </NavLink>
             );
           })}

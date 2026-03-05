@@ -43,6 +43,7 @@ import TowerOfHanoiPage from "./pages/UIProblems/TowerOfHanoiPage";
 import TowerOfHanoiDnDII from "./pages/UIProblems/TowerOfHanoiDnDII";
 import ReactHooks from "./pages/ReactHooks";
 import UseCounter from "./pages/ReactHooks/useCounter";
+import UseCounterII from "./pages/ReactHooks/UseCounterII";
 
 function App() {
   return (
@@ -93,6 +94,7 @@ function App() {
           </Route>
           <Route path="react-hooks" element={<ReactHooks />}>
             <Route path="use-counter" element={<UseCounter />} />
+            <Route path="use-counter-ii" element={<UseCounterII />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

@@ -18,4 +18,11 @@ export const reactHooksRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "useCounter II",
+    href: "/react-hooks/use-counter-ii",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];
