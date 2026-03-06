@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useCounter } from "@/components/ReactHooksComponents/useCounter";
 import HighLightText from "@/components/HighLightText";
 
-const UseCounter = () => {
+const UseCounterPage = () => {
   const { count, increment, decrement, reset } = useCounter(0);
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
@@ -55,4 +55,4 @@ const UseCounter = () => {
   );
 };
 
-export default UseCounter;
+export default UseCounterPage;

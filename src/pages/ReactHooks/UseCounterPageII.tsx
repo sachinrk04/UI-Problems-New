@@ -4,7 +4,7 @@ import { Minus, Plus } from "lucide-react";
 import HighLightText from "@/components/HighLightText";
 import { useCounterII } from "@/components/ReactHooksComponents/useCounterII";
 
-const UseCounterII = () => {
+const UseCounterPageII = () => {
   const [count, increment, decrement, reset, setValue] = useCounterII(2);
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
@@ -69,4 +69,4 @@ const UseCounterII = () => {
   );
 };
 
-export default UseCounterII;
+export default UseCounterPageII;

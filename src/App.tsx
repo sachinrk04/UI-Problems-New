@@ -42,9 +42,9 @@ import NestedCheckboxesPage from "./pages/UIProblems/NestedCheckboxesPage";
 import TowerOfHanoiPage from "./pages/UIProblems/TowerOfHanoiPage";
 import TowerOfHanoiDnDII from "./pages/UIProblems/TowerOfHanoiDnDII";
 import ReactHooks from "./pages/ReactHooks";
-import UseCounter from "./pages/ReactHooks/UseCounter";
-import UseCounterII from "./pages/ReactHooks/UseCounterII";
-import UseDebounce from "./pages/ReactHooks/UseDebounce";
+import UseCounterPage from "./pages/ReactHooks/UseCounterPage";
+import UseCounterPageII from "./pages/ReactHooks/UseCounterPageII";
+import UseDebouncePage from "./pages/ReactHooks/UseDebouncePage";
 
 function App() {
   return (
@@ -94,9 +94,9 @@ function App() {
             <Route path="tower-of-hanoi-ii" element={<TowerOfHanoiDnDII />} />
           </Route>
           <Route path="react-hooks" element={<ReactHooks />}>
-            <Route path="use-counter" element={<UseCounter />} />
-            <Route path="use-counter-ii" element={<UseCounterII />} />
-            <Route path="use-debounce" element={<UseDebounce />} />
+            <Route path="use-counter" element={<UseCounterPage />} />
+            <Route path="use-counter-ii" element={<UseCounterPageII />} />
+            <Route path="use-debounce" element={<UseDebouncePage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

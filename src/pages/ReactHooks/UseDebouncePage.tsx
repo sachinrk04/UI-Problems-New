@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/components/ReactHooksComponents/useDebounce";
 
-const UseDebounce = () => {
+const UseDebouncePage = () => {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 1000);
 
@@ -32,4 +32,4 @@ const UseDebounce = () => {
   );
 };
 
-export default UseDebounce;
+export default UseDebouncePage;
