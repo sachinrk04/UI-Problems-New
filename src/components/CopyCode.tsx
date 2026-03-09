@@ -10,7 +10,7 @@ const CopyCode = ({ code }: { code: string }) => {
   return (
     <button
       onClick={() => handleCopy()}
-      className="bg-white text-primary p-1 rounded hover:bg-primary/20 hover:text-white hover:border hover:border-white"
+      className="p-1 bg-white rounded text-primary hover:bg-primary/20 hover:text-white hover:border hover:border-white"
     >
       <Copy className="w-5 h-5" />
     </button>

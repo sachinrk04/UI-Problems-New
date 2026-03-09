@@ -46,6 +46,8 @@ import UseCounterPage from "./pages/ReactHooks/UseCounterPage";
 import UseCounterPageII from "./pages/ReactHooks/UseCounterPageII";
 import UseDebouncePage from "./pages/ReactHooks/UseDebouncePage";
 import UseStatePage from "./pages/ReactHooks/UseStatePage";
+import UseLocalStoragePage from "./pages/ReactHooks/UseLocalStoragePage";
+import UseFetchPage from "./pages/ReactHooks/UseFetchPage";
 
 function App() {
   return (
@@ -98,6 +100,8 @@ function App() {
             <Route path="use-counter" element={<UseCounterPage />} />
             <Route path="use-counter-ii" element={<UseCounterPageII />} />
             <Route path="use-debounce" element={<UseDebouncePage />} />
+            <Route path="use-local-storage" element={<UseLocalStoragePage />} />
+            <Route path="use-fetch" element={<UseFetchPage />} />
             <Route path="use-state-custom" element={<UseStatePage />} />
           </Route>
           <Route path="git" element={<GitPage />}>

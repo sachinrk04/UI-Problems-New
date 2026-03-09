@@ -30,6 +30,20 @@ export const reactHooksRoutes = [
     pageDescription: "",
   },
   {
+    name: "useLocalStorage",
+    href: "/react-hooks/use-local-storage",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "useFetch",
+    href: "/react-hooks/use-fetch",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
     name: "useStateCustom",
     href: "/react-hooks/use-state-custom",
     icon: Webhook,
