@@ -44,6 +44,20 @@ export const reactHooksRoutes = [
     pageDescription: "",
   },
   {
+    name: "useGeolocation",
+    href: "/react-hooks/use-geolocation",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "useWindowSize",
+    href: "/react-hooks/use-window-size",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
     name: "useStateCustom",
     href: "/react-hooks/use-state-custom",
     icon: Webhook,

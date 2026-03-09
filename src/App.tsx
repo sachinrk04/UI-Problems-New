@@ -48,6 +48,8 @@ import UseDebouncePage from "./pages/ReactHooks/UseDebouncePage";
 import UseStatePage from "./pages/ReactHooks/UseStatePage";
 import UseLocalStoragePage from "./pages/ReactHooks/UseLocalStoragePage";
 import UseFetchPage from "./pages/ReactHooks/UseFetchPage";
+import UseGeolocationPage from "./pages/ReactHooks/UseGeolocationPage";
+import UseWindowSizePage from "./pages/ReactHooks/UseWindowSizePage";
 
 function App() {
   return (
@@ -102,6 +104,8 @@ function App() {
             <Route path="use-debounce" element={<UseDebouncePage />} />
             <Route path="use-local-storage" element={<UseLocalStoragePage />} />
             <Route path="use-fetch" element={<UseFetchPage />} />
+            <Route path="use-geolocation" element={<UseGeolocationPage />} />
+            <Route path="use-window-size" element={<UseWindowSizePage />} />
             <Route path="use-state-custom" element={<UseStatePage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
