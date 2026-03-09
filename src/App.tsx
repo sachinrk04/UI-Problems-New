@@ -45,6 +45,7 @@ import ReactHooks from "./pages/ReactHooks";
 import UseCounterPage from "./pages/ReactHooks/UseCounterPage";
 import UseCounterPageII from "./pages/ReactHooks/UseCounterPageII";
 import UseDebouncePage from "./pages/ReactHooks/UseDebouncePage";
+import UseStatePage from "./pages/ReactHooks/UseStatePage";
 
 function App() {
   return (
@@ -97,6 +98,7 @@ function App() {
             <Route path="use-counter" element={<UseCounterPage />} />
             <Route path="use-counter-ii" element={<UseCounterPageII />} />
             <Route path="use-debounce" element={<UseDebouncePage />} />
+            <Route path="use-state-custom" element={<UseStatePage />} />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

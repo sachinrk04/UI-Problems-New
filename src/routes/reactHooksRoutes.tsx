@@ -29,4 +29,11 @@ export const reactHooksRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "useStateCustom",
+    href: "/react-hooks/use-state-custom",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];

@@ -6,6 +6,7 @@ import HighLightText from "@/components/HighLightText";
 
 const UseCounterPage = () => {
   const { count, increment, decrement, reset } = useCounter(0);
+  
   return (
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
       <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
@@ -20,20 +21,20 @@ const UseCounterPage = () => {
             hook simplifies counter logic and can be reused across multiple
             components.
           </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <div className="flex gap-4 justify-center items-center">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               <Button
-                className="rounded-sm h-8"
+                className="h-8 rounded-sm"
                 size={"sm"}
                 onClick={decrement}
               >
                 <Minus />
               </Button>
-              <span className="border w-20 h-8 rounded-sm flex justify-center items-center text-gray-700">
+              <span className="flex items-center justify-center w-20 h-8 text-gray-700 border rounded-sm">
                 {count}
               </span>
               <Button
-                className="rounded-sm h-8"
+                className="h-8 rounded-sm"
                 size={"sm"}
                 onClick={increment}
               >
@@ -42,7 +43,7 @@ const UseCounterPage = () => {
             </div>
             <Button
               variant={"destructive"}
-              className="rounded-sm h-8"
+              className="h-8 rounded-sm"
               size={"sm"}
               onClick={reset}
             >
