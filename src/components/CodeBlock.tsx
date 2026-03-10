@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import ComingSoon from "./ComingSoon";
 
 const CodeBlock = ({ code }: { code: any }) => {
   const [language, setLanguage] = useState<any>("JAVASCRIPT");
@@ -38,7 +39,7 @@ const CodeBlock = ({ code }: { code: any }) => {
         {code[language]?.length > 0 ? (
           <code>{code[language]}</code>
         ) : (
-          <div className="mt-10 text-center h-52">Comming soon!</div>
+          <ComingSoon />
         )}
       </pre>
     </div>

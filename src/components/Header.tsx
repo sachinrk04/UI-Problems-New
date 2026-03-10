@@ -1,6 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Search } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import SearchBar from "./SearchBar";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +26,7 @@ export function Header() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div
-            className={`h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center transition-transform duration-300 hover:scale-110 ${
+            className={`h-8 w-8 rounded-lg bg-gradient-to-br from-primary/50 to-primary/90 flex items-center justify-center transition-transform duration-300 hover:scale-110 shadow-[0_2px_10px_rgba(0,0,0,0.10)] ${
               isScrolled ? "shadow-lg" : ""
             }`}
           >
@@ -34,7 +34,7 @@ export function Header() {
           </div>
           <span
             className={`font-semibold text-lg hidden sm:inline-block transition-all duration-300 ${
-              isScrolled ? "text-gray-900" : "text-gray-700"
+              isScrolled ? "text-primary/70" : "text-primary"
             }`}
           >
             Frontend
@@ -42,24 +42,7 @@ export function Header() {
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 hidden max-w-md mx-4 md:block">
-          <div className="relative group">
-            <Search
-              className={`absolute left-3 top-1/2 transform -translate-y-1/2 transition-colors duration-200 ${
-                isScrolled ? "text-gray-500" : "text-gray-400"
-              } group-hover:text-blue-500 h-4 w-4`}
-            />
-            <input
-              type="text"
-              placeholder="Search..."
-              className={`w-full pl-10 pr-4 py-1 border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                isScrolled
-                  ? "border-gray-200 bg-gray-50/50"
-                  : "border-gray-200 bg-white/80"
-              } hover:border-gray-300`}
-            />
-          </div>
-        </div>
+        <SearchBar />
 
         {/* Right side actions */}
         <div className="flex items-center ml-auto space-x-4">
@@ -69,7 +52,7 @@ export function Header() {
             }`}
           >
             <AvatarImage src="/avatars/01.png" alt="User" />
-            <AvatarFallback className="font-semibold text-white bg-gradient-to-br from-blue-500 to-purple-600">
+            <AvatarFallback className="font-semibold text-white bg-gradient-to-br from-primary/50 to-primary/90 ">
               U
             </AvatarFallback>
           </Avatar>

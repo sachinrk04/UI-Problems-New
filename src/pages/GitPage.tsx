@@ -3,10 +3,16 @@ import GitPageComponents from "@/components/GitPageComponents/GitPageComponents"
 import SubSidbar from "@/components/SubSidbar";
 import { gitPageRoutes } from "@/routes/gitPageRoutes";
 import { Footer } from "@/components/Footer";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
+import { useSearchBar } from "@/hooks/useSearchBar";
 
 const GitPage = () => {
   const location = useLocation();
   const isParentPath = location.pathname === "/git";
+  const { query } = useSelector((state: RootState) => state.searchQuery);
+
+  const filterGitPageRoutes = useSearchBar(gitPageRoutes.slice(1), query, ["name"]);
 
   return (
     <div className="flex h-[calc(100vh-4rem)]">
@@ -14,7 +20,7 @@ const GitPage = () => {
         <>
           {isParentPath ? (
             <div className="h-[calc(100vh-4rem)] overflow-auto">
-              <GitPageComponents gitComponents={gitPageRoutes} />
+              <GitPageComponents gitComponents={filterGitPageRoutes} />
               <Footer />
             </div>
           ) : (

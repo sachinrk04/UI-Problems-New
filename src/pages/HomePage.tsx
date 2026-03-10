@@ -1,5 +1,20 @@
+import { Footer } from "@/components/Footer";
+
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <div className="overflow-auto flex flex-col gap-y-4 p-4">
+        <div className="shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] min-h-[calc(100vh-6rem)] rounded-md">
+          <iframe 
+            src="https://redux-toolkit.js.org"
+            className="w-full h-[calc(100vh-6rem)] rounded-md"
+            title="Example Website">
+          </iframe>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default HomePage;

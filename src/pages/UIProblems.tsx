@@ -3,10 +3,16 @@ import UIProblemsComponents from "@/components/UIProblemsComponents/UIProblemsCo
 import SubSidbar from "@/components/SubSidbar";
 import { uiProblemRoutes } from "@/routes/uiProblemRoutes";
 import { Footer } from "@/components/Footer";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
+import { useSearchBar } from "@/hooks/useSearchBar";
 
 const UIProblems = () => {
   const location = useLocation();
   const isParentPath = location.pathname === "/ui-problems";
+  const { query } = useSelector((state: RootState) => state.searchQuery);
+
+  const filterUIProblemRoutes = useSearchBar(uiProblemRoutes.slice(1), query, ["name"])
 
   return (
     <div className="flex h-[calc(100vh-4rem)]">
@@ -14,7 +20,7 @@ const UIProblems = () => {
         <>
           {isParentPath ? (
             <div className="h-[calc(100vh-4rem)] overflow-auto">
-              <UIProblemsComponents uiComponents={uiProblemRoutes.slice(1)} />
+              <UIProblemsComponents uiComponents={filterUIProblemRoutes} />
               <Footer />
             </div>
           ) : (

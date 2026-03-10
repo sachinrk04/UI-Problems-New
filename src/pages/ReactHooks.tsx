@@ -3,18 +3,29 @@ import ReactHooksComponent from "@/components/ReactHooksComponents/ReactHooksCom
 import SubSidbar from "@/components/SubSidbar";
 import { reactHooksRoutes } from "@/routes/reactHooksRoutes";
 import { Footer } from "@/components/Footer";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
+import { useSearchBar } from "@/hooks/useSearchBar";
 
 const ReactHooks = () => {
-
-    const location = useLocation();
+  const location = useLocation();
   const isParentPath = location.pathname === "/react-hooks";
+
+  const { query } = useSelector((state: RootState) => state.searchQuery);
+
+  const filterReactHooksRoutes = useSearchBar(
+    reactHooksRoutes.slice(1),
+    query,
+    ["name"],
+  );
+
   return (
     <div className="flex h-[calc(100vh-4rem)]">
       <main className="min-h-[calc(100vh-4rem)] flex-1 animate-in slide-in-from-bottom-2 overflow-auto">
         <>
           {isParentPath ? (
             <div className="h-[calc(100vh-4rem)] overflow-auto">
-              <ReactHooksComponent hooksComponents={reactHooksRoutes.slice(1)} />
+              <ReactHooksComponent hooksComponents={filterReactHooksRoutes} />
               <Footer />
             </div>
           ) : (
@@ -30,6 +41,6 @@ const ReactHooks = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ReactHooks;
