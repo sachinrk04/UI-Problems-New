@@ -51,6 +51,7 @@ import UseFetchPage from "./pages/ReactHooks/UseFetchPage";
 import UseGeolocationPage from "./pages/ReactHooks/UseGeolocationPage";
 import UseWindowSizePage from "./pages/ReactHooks/UseWindowSizePage";
 import TransferListPage from "./pages/UIProblems/TransferListPage";
+import SelectableCellsPage from "./pages/UIProblems/SelectableCellsPage";
 
 function App() {
 
@@ -100,6 +101,7 @@ function App() {
             <Route path="tower-of-hanoi" element={<TowerOfHanoiPage />} />
             <Route path="tower-of-hanoi-ii" element={<TowerOfHanoiDnDII />} />
             <Route path="transfer-list" element={<TransferListPage />} />
+            <Route path="selectable-cells" element={<SelectableCellsPage />} />
           </Route>
           <Route path="react-hooks" element={<ReactHooks />}>
             <Route path="use-counter" element={<UseCounterPage />} />

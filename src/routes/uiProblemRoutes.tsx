@@ -270,4 +270,11 @@ export const uiProblemRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "Selectable Cells",
+    href: "/ui-problems/selectable-cells",
+    icon: Grid3x3,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];
