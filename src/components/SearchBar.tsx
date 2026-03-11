@@ -1,18 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/store/store";
-import { searchBar } from "@/store/actions";
+import { clearSearchBar, searchBar } from "@/store/actions";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = () => {
+  const location = useLocation();
   const dispatch = useDispatch<AppDispatch>();
   const { query } = useSelector((state: RootState) => state.searchQuery);
 
   const [searchText, setSearchText] = useState(query ?? "");
 
   const handleOnSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
+    const value = e.target.value
+    setSearchText(value);
   };
 
   // Debounce logic
@@ -23,6 +27,13 @@ const SearchBar = () => {
 
     return () => clearTimeout(timer);
   }, [searchText, dispatch]);
+
+  useEffect(() => {
+    if (location.pathname && searchText.length) {
+      setSearchText("")
+      dispatch(clearSearchBar())
+    }
+  }, [dispatch, location.pathname])
 
   return (
     <div className="flex-1 hidden max-w-md mx-4 md:block">

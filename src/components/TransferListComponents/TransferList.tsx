@@ -2,18 +2,11 @@ import { useState } from "react";
 import List from "./List";
 import { Button } from "../ui/button";
 
-type Item = {
-  id: number;
-  label: string;
-  side: "left" | "right";
-  checked: boolean;
-};
-
-const initialItems: Item[] = [
-  { id: 1, label: "HTML", side: "left", checked: false },
-  { id: 2, label: "CSS", side: "left", checked: false },
-  { id: 3, label: "JavaScript", side: "left", checked: false },
-  { id: 4, label: "React", side: "right", checked: false },
+const initialItems = [
+  { id: 1, label: "HTML", side: "LEFT", checked: false },
+  { id: 2, label: "CSS", side: "LEFT", checked: false },
+  { id: 3, label: "JavaScript", side: "LEFT", checked: false },
+  { id: 4, label: "React", side: "RIGHT", checked: false },
 ];
 
 const TransferList = () => {
@@ -27,9 +20,9 @@ const TransferList = () => {
     );
   };
 
-  const move = (from: "left" | "right", to: "left" | "right", all = false) => {
-    setItems((prev) =>
-      prev.map((item) => {
+  const move = (from: string, to: string, all = false) => {
+    setItems((prev: any) =>
+      prev.map((item: any) => {
         if (item.side === from && (all || item.checked)) {
           return { ...item, side: to, checked: false };
         }
@@ -38,24 +31,24 @@ const TransferList = () => {
     );
   };
 
-  const leftItems = items.filter((leftItem) => leftItem.side === "left");
-  const rightItems = items.filter((rightItem) => rightItem.side === "right");
+  const leftItems = items.filter((leftItem) => leftItem.side === "LEFT");
+  const rightItems = items.filter((rightItem) => rightItem.side === "RIGHT");
 
   return (
     <div className="flex justify-center p-4">
       <div className="flex gap-4 border rounded-sm">
         <List items={leftItems} toggleCheck={toggleCheck} />
         <div className="flex flex-col gap-4 p-4 border-x">
-          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("right", "left", true)}>
+          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("RIGHT", "LEFT", true)}>
             {"<<"}
           </Button>
-          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("right", "left")}>
+          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("RIGHT", "LEFT")}>
             {"<"}
           </Button>
-          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("left", "right")}>
+          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("LEFT", "RIGHT")}>
             {">"}
           </Button>
-          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("left", "right", true)}>
+          <Button variant={"outline"} className="h-8 rounded-sm" onClick={() => move("LEFT", "RIGHT", true)}>
             {">>"}
           </Button>
         </div>

@@ -11,3 +11,14 @@ export const searchBar = createAsyncThunk(
     }
   },
 );
+
+export const clearSearchBar = createAsyncThunk(
+  actionTypes.CLEAR_SEARCH_BAR,
+  async (_, { rejectWithValue }) => {
+    try {
+      return "";
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  },
+);

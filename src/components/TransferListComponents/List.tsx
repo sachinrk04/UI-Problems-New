@@ -5,7 +5,7 @@ const List = ({ items, toggleCheck }: any) => {
   return (
     <div className="w-56 space-y-4 flex flex-col justify-center">
       {items.map((item: any) => (
-        <Label className="flex items-center ml-5 gap-2">
+        <Label key={item.id} className="flex items-center ml-5 gap-2">
           <Input
             type="checkbox"
             className="w-5 h-5 bg-primary"
