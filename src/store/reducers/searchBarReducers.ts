@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { searchBar } from "../actions";
+import { clearSearchBar, searchBar } from "../actions";
 
 interface SearchBarState {
   query: string;
@@ -14,7 +14,11 @@ const searchBarSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(searchBar.fulfilled, (state, action) => {
+    builder
+    .addCase(searchBar.fulfilled, (state, action) => {
+      state.query = action.payload;
+    })
+    .addCase(clearSearchBar.fulfilled, (state, action) => {
       state.query = action.payload;
     });
   },

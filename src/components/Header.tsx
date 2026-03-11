@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +25,7 @@ export function Header() {
     >
       <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <div
             className={`h-8 w-8 rounded-lg bg-gradient-to-br from-primary/50 to-primary/90 flex items-center justify-center transition-transform duration-300 hover:scale-110 shadow-[0_2px_10px_rgba(0,0,0,0.10)] ${
               isScrolled ? "shadow-lg" : ""
@@ -39,7 +40,7 @@ export function Header() {
           >
             Frontend
           </span>
-        </div>
+        </Link>
 
         {/* Search Bar */}
         <SearchBar />

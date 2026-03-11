@@ -1,3 +1,3 @@
 export {themeChange} from "./themeActions";
 
-export { searchBar } from "./searchBarActions";
+export { searchBar, clearSearchBar } from "./searchBarActions";
