@@ -271,6 +271,13 @@ export const uiProblemRoutes = [
     pageDescription: "",
   },
   {
+    name: "Transfer List II",
+    href: "/ui-problems/transfer-list-ii",
+    icon: MoveHorizontal,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
     name: "Selectable Cells",
     href: "/ui-problems/selectable-cells",
     icon: Grid3x3,
