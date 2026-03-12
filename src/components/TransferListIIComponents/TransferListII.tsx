@@ -15,59 +15,69 @@ const initialItems = [
 
 const TransferListII = () => {
   const [items, setItems] = useState(initialItems);
-  const [nextId, setNextId] = useState(initialItems.length + 1);
 
-  const checkedLeft = items.filter((i) => i.side === "LEFT" && i.checked);
-  const checkedRight = items.filter((i) => i.side === "RIGHT" && i.checked);
-
-  function toggle(id) {
+  function toggle(id: number) {
     setItems((prev) =>
-      prev.map((i) => (i.id === id ? { ...i, checked: !i.checked } : i)),
-    );
-  }
-
-  function toggleAll(side) {
-    const sideItems = items.filter((i) => i.side === side);
-    const allChecked = sideItems.every((i) => i.checked);
-    setItems((prev) =>
-      prev.map((i) => (i.side === side ? { ...i, checked: !allChecked } : i)),
-    );
-  }
-
-  function transfer(fromSide, toSide) {
-    setItems((prev) =>
-      prev.map((i) =>
-        i.side === fromSide && i.checked
-          ? { ...i, side: toSide, checked: false }
-          : i,
+      prev.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item,
       ),
     );
   }
 
-  function addItem(label, side) {
-    if (items.some((i) => i.label.toLowerCase() === label.toLowerCase()))
-      return;
-    setItems((prev) => [...prev, { id: nextId, label, side, checked: false }]);
-    setNextId((n) => n + 1);
+  function toggleAll(side: string) {
+    const sideItems = items.filter((item) => item.side === side);
+    const allChecked = sideItems.every((item) => item.checked);
+    setItems((prev) =>
+      prev.map((item) =>
+        item.side === side ? { ...item, checked: !allChecked } : item,
+      ),
+    );
   }
 
-  return (
-    <div className="min-h-full flex items-center justify-center p-6">
-      <div className="bg-white border rounded-lg flex w-full max-w-2xl">
-        <div className="flex-1">
-          <ListII
-            side="LEFT"
-            items={items}
-            onToggle={toggle}
-            onToggleAll={toggleAll}
-            onAdd={addItem}
-          />
-        </div>
+  function transfer(fromSide: string, toSide: string) {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.side === fromSide && item.checked
+          ? { ...item, side: toSide, checked: false }
+          : item,
+      ),
+    );
+  }
 
-        <div className="flex flex-col items-center justify-center pt-12 px-4 gap-2 border-l border-r border-gray-200">
+  function addItem(label: string, side: string) {
+    if (
+      items.some((item) => item.label.toLowerCase() === label.toLowerCase())
+    ) {
+      return;
+    }
+    setItems((prev) => [
+      ...prev,
+      { id: items.length + 1, label, side, checked: false },
+    ]);
+  }
+
+  const leftItemsChecked = items.filter(
+    (item) => item.side === "LEFT" && item.checked,
+  );
+  const righItemsChecked = items.filter(
+    (item) => item.side === "RIGHT" && item.checked,
+  );
+
+  return (
+    <div className="min-h-full flex justify-center items-start p-6">
+      <div className="border rounded-lg flex w-1/2">
+        <ListII
+          side="LEFT"
+          items={items}
+          onToggle={toggle}
+          onToggleAll={toggleAll}
+          onAdd={addItem}
+        />
+
+        <div className="flex flex-col items-center justify-center px-4 gap-2 border-x">
           <Button
             onClick={() => transfer("RIGHT", "LEFT")}
-            disabled={checkedRight.length === 0}
+            disabled={righItemsChecked.length === 0}
             variant={"outline"}
             className="h-8 rounded-sm"
           >
@@ -75,7 +85,7 @@ const TransferListII = () => {
           </Button>
           <Button
             onClick={() => transfer("LEFT", "RIGHT")}
-            disabled={checkedLeft.length === 0}
+            disabled={leftItemsChecked.length === 0}
             variant={"outline"}
             className="h-8 rounded-sm"
           >
@@ -83,15 +93,13 @@ const TransferListII = () => {
           </Button>
         </div>
 
-        <div className="flex-1">
-          <ListII
-            side="RIGHT"
-            items={items}
-            onToggle={toggle}
-            onToggleAll={toggleAll}
-            onAdd={addItem}
-          />
-        </div>
+        <ListII
+          side="RIGHT"
+          items={items}
+          onToggle={toggle}
+          onToggleAll={toggleAll}
+          onAdd={addItem}
+        />
       </div>
     </div>
   );

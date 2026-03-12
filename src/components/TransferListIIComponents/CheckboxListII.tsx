@@ -1,10 +1,6 @@
 import { Check, Minus } from "lucide-react";
 
-const CheckboxListII = ({
-  checked,
-  indeterminate,
-  onChange,
-}: any) => {
+const CheckboxListII = ({ checked, indeterminate, onChange }: any) => {
   return (
     <div
       onClick={(e) => {

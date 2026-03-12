@@ -5,16 +5,17 @@ import { Input } from "../ui/input";
 const ListII = ({ side, items, onToggle, onToggleAll, onAdd }: any) => {
   const [input, setInput] = useState("");
 
-  const sideItems = items.filter((i) => i.side === side);
-  const checkedCount = sideItems.filter((i) => i.checked).length;
-  const allChecked = sideItems.length > 0 && sideItems.every((i) => i.checked);
-  const someChecked = sideItems.some((i) => i.checked);
+  const sideItems = items.filter((item: any) => item.side === side);
+  const checkedCount = sideItems.filter((item: any) => item.checked).length;
+  const allChecked =
+    sideItems.length > 0 && sideItems.every((item: any) => item.checked);
+  const someChecked = sideItems.some((item: any) => item.checked);
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: any) {
     if (e.key !== "Enter") return;
-    const val = input.trim();
-    if (!val) return;
-    onAdd(val, side);
+    const value = input.trim();
+    if (!value) return;
+    onAdd(value, side);
     setInput("");
   }
 
@@ -43,7 +44,7 @@ const ListII = ({ side, items, onToggle, onToggleAll, onAdd }: any) => {
       </div>
 
       <div className="flex flex-col mt-1">
-        {sideItems.map((item) => (
+        {sideItems.map((item: any) => (
           <div
             key={item.id}
             className="flex items-center gap-3 p-3 border-b border-gray-100 cursor-pointer"
