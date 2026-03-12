@@ -1,4 +1,5 @@
 import {
+  ArrowUpFromLine,
   BookOpen,
   Box,
   ChartColumnBig,
@@ -281,6 +282,13 @@ export const uiProblemRoutes = [
     name: "Selectable Cells",
     href: "/ui-problems/selectable-cells",
     icon: Grid3x3,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
+    name: "Lifting State Up",
+    href: "/ui-problems/lifting-state-up",
+    icon: ArrowUpFromLine,
     sideDescription: "",
     pageDescription: "",
   },
