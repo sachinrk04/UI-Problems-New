@@ -54,6 +54,7 @@ import TransferListPage from "./pages/UIProblems/TransferListPage";
 import SelectableCellsPage from "./pages/UIProblems/SelectableCellsPage";
 import TransferListIIPage from "./pages/UIProblems/TransferListIIPage";
 import LiftingStateUpPage from "./pages/UIProblems/LiftingStateUpPage";
+import GenerateTablePage from "./pages/UIProblems/GenerateTablePage";
 
 function App() {
 
@@ -106,6 +107,7 @@ function App() {
             <Route path="transfer-list-ii" element={<TransferListIIPage />} />
             <Route path="selectable-cells" element={<SelectableCellsPage />} />
             <Route path="lifting-state-up" element={<LiftingStateUpPage />} />
+            <Route path="generate-table" element={<GenerateTablePage />} />
           </Route>
           <Route path="react-hooks" element={<ReactHooks />}>
             <Route path="use-counter" element={<UseCounterPage />} />
