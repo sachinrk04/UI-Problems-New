@@ -286,7 +286,59 @@ Clear assumptions | Intentional trade-offs | Production mindset
 - Design a Real-time Multiplayer Game Interface
 - Design a Content Recommendation Carousel/UI
 #-----------------------------------------------------------------------------------------------
+🔺𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁 & 𝗥𝗲𝗮𝗰𝘁-𝗕𝗮𝘀𝗲𝗱:
 
+1. Implement Promise.all polyfill
+2. Implement Promise.any polyfill
+3. Implement Array.prototype.reduce polyfill
+4. Implement Lodash’s flatten method
+5. Implement auto-retry for promises
+6. Throttle promises by batching
+7. Debouncing implementation
+8. Throttling implementation
+9. Execute N callback-based async tasks in series
+10. Output prediction for tricky 10-15 JavaScript snippets
+11. Object vs Map differences in JavaScript
+12. Difference between PATCH and PUT
+13. What is the difference between debounce and throttle?
+14. How does the JavaScript Engine work?
+15. What is the Event Loop and how does the Microtask Queue work?
+16. Explain Virtual DOM and its comparison mechanism
+17. Why do keys matter in React and how do they improve performance?
+18. Explain how useState works internally
+19. Implement a basic version of useState
+20. What are React Portals? How are modals mounted using them?
+21. What are Error Boundaries in React?
+22. How does memoization work in React?
+23. SSR vs CSR with examples and use-cases
+24. What is Module Federation?
+25. What is Micro-Frontend Architecture?
+26. Server-Side Rendering techniques to improve SEO
+27. How to control tab order in DOM (explain tabIndex)
+28. What is Event Capturing and Bubbling
+29. How to override toString on String.prototype
+30. What are memory leaks in React and how to detect them?
+31. How to measure performance in a React application?
+32. What is OAuth and how does it work?
+33. How does SSO work?
+34. What are REST API methods and their differences?
+35. Principles of Functional Programming
+36. What are microservices?
+37. How would you build a tool like Create React App?
+38. How do you structure reusable UI components in React?
+
+🔺𝗙𝗿𝗼𝗻𝘁𝗲𝗻𝗱 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻:
+
+39. Design a Netflix-like video streaming app
+40. Design a Social Media app like Twitter or Facebook
+41. Design a live-stream chat like Zoom
+42. Design Google Meet frontend system
+43. Design reusable Tabs Component (HLD-level)
+44. Explain data flow and architecture for a live messaging app
+45. Strategies to ensure good streaming performance in poor network conditions
+46. How would you optimize rendering for streaming messages?
+47. How would you build the backend structure for a real-world app?
+48. Frontend layout rearrangement using only CSS (Like Holy Grail)
 #-----------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------
