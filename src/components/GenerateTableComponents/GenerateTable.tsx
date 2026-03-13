@@ -4,43 +4,46 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 
 const GenerateTable = () => {
-  const [rows, setRows] = useState(0);
-  const [cols, setCols] = useState(0);
-  const [table, setTable] = useState<number[][]>([]);
+  const [rows, setRows] = useState(5);
+  const [cols, setCols] = useState(5);
+  const [table, setTable] = useState<any[][]>([]);
 
   const generateTable = () => {
-    let count = 1;
-    const newTable: number[][] = [];
+      const dumyTable = Array.from({ length: rows }, () => Array(cols).fill(0));
 
-    for (let r = 0; r < rows; r++) {
-      const row: number[] = [];
+      let num = 1;
 
-      for (let c = 0; c < cols; c++) {
-        row.push(count++);
+      for (let col = 0; col < cols; col++) {
+        if (col % 2 === 0) {
+          for (let row = 0; row < rows; row++) {
+            dumyTable[row][col] = num++;
+          }
+        } else {
+          for (let row = rows - 1; row >= 0; row--) {
+            dumyTable[row][col] = num++;
+          }
+        }
       }
 
-      newTable.push(row);
-    }
-
-    setTable(newTable);
+      setTable(dumyTable)
   };
-  
+
   return (
-    <div className="flex flex-col items-center justify-start min-h-full p-4">
+    <div className="flex flex-col items-center justify-start min-h-full gap-6 p-4">
       <div className="flex flex-col items-center justify-center gap-4 p-4 bg-gray-100 rounded-sm">
         <div className="flex items-center justify-between gap-4">
           <Label className="w-14">Rows</Label>
           <Input
-            value={rows}
-            onChange={(e: any) => setRows(e.target.value)}
+            value={rows === 0 ? "" : rows}
+            onChange={(e: any) => setRows(Number(e.target.value))}
             className="w-40 h-8 rounded-sm"
           />
         </div>
         <div className="flex items-center justify-between gap-4">
           <Label className="w-14">Columns</Label>
           <Input
-            value={cols}
-            onChange={(e: any) => setCols(e.target.value)}
+            value={cols === 0 ? "" : cols}
+            onChange={(e: any) => setCols(Number(e.target.value))}
             className="w-40 h-8 rounded-sm"
           />
         </div>
@@ -49,19 +52,20 @@ const GenerateTable = () => {
         </Button>
       </div>
 
-      <div>
-        <table border={1} cellPadding={10} style={{ marginTop: 20 }}>
-          <tbody>
-            {table.map((row, rIndex) => (
-              <tr key={rIndex}>
-                {row.map((cell, cIndex) => (
-                  <td key={cIndex} className="border">{cell}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <div>
+          {table.length > 0 && (
+            <div className="border">
+              {table.map((items, rowIndex) => (
+                <div key={rowIndex} className="flex">
+                  {items.map((item, colIndex) =>  (
+                    <div key={colIndex} className="flex items-center justify-center w-10 h-10 border">{item}</div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+     
     </div>
   );
 };

@@ -133,3 +133,24 @@ function twoPointer_twoSum(nums, target) {
 
 const Result_Two_Pointer = twoPointer_twoSum(nums, target);
 console.log("Result_Two_Pointer--->", Result_Two_Pointer);
+
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+// Object Approach (Sorted Array)
+// ---------------------------------------------------------
+function twoSum_Object(nums, target) {
+  let map = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const diff = target - nums[i];
+
+    if (map[diff] !== undefined) {
+      return [map[diff], i];
+    }
+
+    map[nums[i]] = i;
+  }
+
+  return [];
+} 
+
