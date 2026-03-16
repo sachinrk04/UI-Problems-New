@@ -1,4 +1,4 @@
-import { FolderGit, Home, Package, Webhook } from "lucide-react";
+import { Compass, FolderGit, Home, Package, Webhook } from "lucide-react";
 
 export const mainRoutes = [
   {
@@ -17,6 +17,12 @@ export const mainRoutes = [
     name: "Hooks",
     icon: Webhook,
     href: "/react-hooks",
+    children: [],
+  },
+  {
+    name: "Algorithms",
+    icon: Compass,
+    href: "/algorithms",
     children: [],
   },
   {

@@ -55,9 +55,10 @@ import SelectableCellsPage from "./pages/UIProblems/SelectableCellsPage";
 import TransferListIIPage from "./pages/UIProblems/TransferListIIPage";
 import LiftingStateUpPage from "./pages/UIProblems/LiftingStateUpPage";
 import GenerateTablePage from "./pages/UIProblems/GenerateTablePage";
+import AlgorithmPage from "./pages/AlgorithmPage";
+import CocktailShakerSortPage from "./pages/AlgorithmPage/CocktailShakerSortPage";
 
 function App() {
-
   return (
     <>
       <Routes>
@@ -118,6 +119,12 @@ function App() {
             <Route path="use-geolocation" element={<UseGeolocationPage />} />
             <Route path="use-window-size" element={<UseWindowSizePage />} />
             <Route path="use-state-custom" element={<UseStatePage />} />
+          </Route>
+          <Route path="algorithms" element={<AlgorithmPage />}>
+            <Route
+              path="cocktail-shaker-sort"
+              element={<CocktailShakerSortPage />}
+            />
           </Route>
           <Route path="git" element={<GitPage />}>
             <Route path="basic-git-commands" element={<BasicGitCommands />} />

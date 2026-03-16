@@ -340,6 +340,80 @@ Clear assumptions | Intentional trade-offs | Production mindset
 47. How would you build the backend structure for a real-world app?
 48. Frontend layout rearrangement using only CSS (Like Holy Grail)
 #-----------------------------------------------------------------------------------------------
+𝟭. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗟𝗶𝗯𝗿𝗮𝗿𝘆 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 𝗦𝘆𝘀𝘁𝗲𝗺
+ → Books, members, borrow/return flow, fine calculation
+ → Reservation queue when book is unavailable
+ → Asked at: Flipkart, Paytm
+ → Pattern: Observer (due date alerts) + Strategy (fine calculation)
+
+𝟮. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗛𝗼𝘁𝗲𝗹 𝗕𝗼𝗼𝗸𝗶𝗻𝗴 𝗦𝘆𝘀𝘁𝗲𝗺
+→ Room types, availability calendar, dynamic pricing
+→ Concurrent booking conflict, cancellation policy
+→ Asked at: MakeMyTrip, Uber 
+→ Pattern: State (room status) + Strategy (pricing engine)
+
+𝟯. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗥𝗶𝗱𝗲 𝗦𝗵𝗮𝗿𝗶𝗻𝗴 𝗔𝗽𝗽 (𝗨𝗯𝗲𝗿/𝗢𝗹𝗮)
+→ Driver-rider matching, surge pricing, trip state machine
+→ Real-time location updates, fare calculation
+→ Asked at: Uber, Swiggy, Dunzo
+→ Pattern: Observer + Strategy (matching algorithm)
+
+𝟰. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗗𝗶𝗴𝗶𝘁𝗮𝗹 𝗪𝗮𝗹𝗹𝗲𝘁 (𝗣𝗮𝘆𝗧𝗠/𝗚𝗣𝗮𝘆)
+→ Account balance, transaction ledger, transfer limits
+→ Idempotency in payments, rollback on failure
+→ Asked at: Razorpay, PayTM, PhonePe
+→ Pattern: Command (transactions) + State (wallet status)
+
+𝟱. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 & 𝗕𝗶𝗹𝗹𝗶𝗻𝗴 𝗦𝘆𝘀𝘁𝗲𝗺
+→ Plan tiers, upgrade/downgrade proration
+→ Recurring billing, failed payment retry logic
+→ Asked at: Zoho, Freshworks, Chargebee
+→ Pattern: Strategy (billing cycles) + Observer (payment events)
+
+𝟲. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮𝗻 𝗢𝗻𝗹𝗶𝗻𝗲 𝗖𝗼𝗱𝗲 𝗘𝗱𝗶𝘁𝗼𝗿 (𝗹𝗶𝗸𝗲 𝗥𝗲𝗽𝗹𝗶𝘁)
+→ File tree, real-time collaboration, execution sandbox
+→ Syntax highlighting, autosave with versioning
+→ Asked at: Atlassian, Adobe, Codesmith
+→ Pattern: Observer (real-time sync) + Command (edit history)
+
+𝟳. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗧𝗶𝗰𝗸𝗲𝘁𝗶𝗻𝗴 𝗦𝘆𝘀𝘁𝗲𝗺
+→ Ticket creation, priority queue, agent assignment
+→ Escalation rules, SLA tracking, status updates
+→ Asked at: Freshdesk, ServiceNow, Zendesk
+→ Pattern: Chain of Responsibility (escalation) + Observer (SLA alerts)
+
+𝟴. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮𝗻 𝗜𝗻𝘃𝗲𝗻𝘁𝗼𝗿𝘆 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 𝗦𝘆𝘀𝘁𝗲𝗺
+→ Stock tracking across warehouses, reorder triggers
+→ Reservation on order, release on cancellation
+→ Asked at: Amazon, Myntra, Nykaa
+→ Pattern: Observer (stock alerts) + Strategy (reorder policy)
+
+𝟵. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮 𝗠𝘂𝗹𝘁𝗶𝗽𝗹𝗮𝘆𝗲𝗿 𝗚𝗮𝗺𝗲 𝗟𝗲𝗮𝗱𝗲𝗿𝗯𝗼𝗮𝗿𝗱
+→ Real-time score updates, rank recalculation
+→ Regional vs global boards, time-based snapshots
+→ Asked at: Dream11, MPL, Games24x7
+→ Pattern: Observer (score updates) + Strategy (ranking algorithm)
+
+𝟭𝟬. 𝗗𝗲𝘀𝗶𝗴𝗻 𝗮𝗻 𝗢𝗧𝗣 / 𝗔𝘂𝘁𝗵 𝗦𝗲𝗿𝘃𝗶𝗰𝗲
+→ OTP generation, expiry, rate limiting per user
+→ Multi-channel delivery (SMS/email/WhatsApp)
+→ Asked at: Razorpay, CRED, BrowserStack
+→ Pattern: Strategy (delivery channel) + Decorator (rate limiting layer)
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------
 
