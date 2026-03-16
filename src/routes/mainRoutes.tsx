@@ -9,26 +9,26 @@ export const mainRoutes = [
   },
   {
     name: "UI-Problems",
-    icon: Package,
     href: "/ui-problems",
+    icon: Package,
     children: [],
   },
   {
     name: "Hooks",
-    icon: Webhook,
     href: "/react-hooks",
+    icon: Webhook,
     children: [],
   },
   {
     name: "Algorithms",
-    icon: Compass,
     href: "/algorithms",
+    icon: Compass,
     children: [],
   },
   {
     name: "Git",
-    icon: FolderGit,
     href: "/git",
+    icon: FolderGit,
     children: [],
   },
 ];
