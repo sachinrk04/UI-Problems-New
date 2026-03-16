@@ -19,8 +19,8 @@ const CodeViewModal = ({title = "Code", viewCode = ""} : any) => {
             {title}
           </SheetTitle>
         </SheetHeader>
-        <div className="p-4 overflow-hidden">
-            <CodeBlock code={viewCode} />
+        <div className="p-4 max-h-[calc(100vh-4rem)] overflow-auto rounded-sm">
+            <CodeBlock code={viewCode} height="max-h-[calc(100vh-5.5rem)]" />
         </div>
       </SheetContent>
     </Sheet>

@@ -15,4 +15,11 @@ export const algorithmsRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "Heap Sort",
+    href: "/algorithms/heap-sort",
+    icon: Compass,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];

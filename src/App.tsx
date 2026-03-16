@@ -9,6 +9,7 @@ import UIProblems from "./pages/UIProblems";
 import ReactHooks from "./pages/ReactHooks";
 import AlgorithmPage from "./pages/AlgorithmPage";
 import GitPage from "./pages/GitPage";
+import HeapSortPage from "./pages/AlgorithmPage/HeapSortPage";
 
 // ─── Lazy loaded ──────────────────────────────────────────────────────────────
 // UI Problems
@@ -127,6 +128,7 @@ const hookRoutes: RouteConfig[] = [
 
 const algorithmRoutes: RouteConfig[] = [
   { path: "cocktail-shaker-sort", element: <CocktailShakerSortPage /> },
+  { path: "heap-sort", element: <HeapSortPage /> },
 ];
 
 const gitRoutes: RouteConfig[] = [

@@ -10,7 +10,7 @@ import {
 } from "./ui/select";
 import ComingSoon from "./ComingSoon";
 
-const CodeBlock = ({ code }: { code: any }) => {
+const CodeBlock = ({ code, height = "h-full" }: { code: any, height?: string }) => {
   const [language, setLanguage] = useState<any>("JAVASCRIPT");
 
   return (
@@ -35,7 +35,7 @@ const CodeBlock = ({ code }: { code: any }) => {
           {code[language]?.length > 0 && <CopyCode code={code[language]} />}
         </div>
       </div>
-      <pre className="p-4 overflow-auto text-xs font-medium text-gray-700 rounded pt-9 bg-primary/5">
+      <pre className={`${height} p-4 overflow-auto text-xs font-medium text-gray-700 rounded pt-9 bg-primary/5`}>
         {code[language]?.length > 0 ? (
           <code>{code[language]}</code>
         ) : (
