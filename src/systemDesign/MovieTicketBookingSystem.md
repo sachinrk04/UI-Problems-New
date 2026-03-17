@@ -364,6 +364,42 @@ stateDiagram-v2
   BOOKED --> [*]
 ```
 
+### 7.3 UI flow (BookMyShow-like)
+
+**SVG export:** `src/systemDesign/assets/movieticket-ui-flow.svg`
+
+![](./assets/movieticket-ui-flow.svg)
+
+```mermaid
+flowchart TD
+  A[Home / City Select] --> B[Movie Listing]
+  B --> C[Movie Detail]
+  C --> D[Showtimes]
+  D --> E[Seat Map]
+
+  subgraph SeatSelection[Seat selection + locking]
+    E -->|Select seats| F[Price Summary / Cart]
+    F -->|Create Hold| G[Hold Active - timer running]
+    G -->|Back| E
+    G -->|Change seats| E
+  end
+
+  G --> H[Checkout]
+  H --> I[Payment]
+  I -->|Success via webhook| J[Booking Confirmed]
+  I -->|Failure or cancel| K[Payment Failed]
+  K --> G
+
+  G -->|Hold expires| L[Hold Expired]
+  L --> E
+
+  J --> M[Ticket Details / QR]
+  M --> N[Share / Add to Calendar]
+
+  classDef danger fill:#ffe8e8,stroke:#d33,color:#111;
+  class K,L danger;
+```
+
 ## 7. Key APIs (Minimal)
 
 ### Catalog / discovery (read heavy)
