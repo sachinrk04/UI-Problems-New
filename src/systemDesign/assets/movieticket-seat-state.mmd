@@ -1,0 +1,9 @@
+stateDiagram-v2
+  [*] --> AVAILABLE
+  AVAILABLE --> HELD: createHold (conditional update)
+  HELD --> BOOKED: confirmBooking (transaction)
+  HELD --> AVAILABLE: expiry/release
+  AVAILABLE --> BLOCKED: admin block
+  BLOCKED --> AVAILABLE: admin unblock
+  BOOKED --> [*]
+

@@ -1,0 +1,40 @@
+sequenceDiagram
+  autonumber
+  actor U as User
+  participant C as Client
+  participant S as Booking Service
+  participant DB as DB (SeatInventory + Hold + Booking)
+  participant P as Payment Gateway
+  participant J as Expiry Job
+
+  U->>C: Open seat map
+  C->>S: GET /shows/{showId}/seatmap
+  S->>DB: Read Seat + SeatInventory
+  DB-->>S: Layout + statuses
+  S-->>C: Seat map
+
+  U->>C: Select seats (A1,A2)
+  C->>S: POST /holds {showId, seatIds}
+  S->>DB: TX: create Hold(ACTIVE, expiresAt)
+  S->>DB: TX: update SeatInventory to HELD (conditional)
+  alt all seats acquired
+    DB-->>S: ok
+    S-->>C: 201 {holdId, expiresAt, priceSnapshot}
+    C->>P: Create payment intent (amount)
+    P-->>C: paymentIntentId
+    C->>P: Pay
+    P-->>S: webhook payment_succeeded(paymentIntentId)
+    S->>DB: TX: validate Hold ACTIVE & not expired
+    S->>DB: TX: HELD->BOOKED for holdId
+    S->>DB: TX: Hold CONVERTED, Booking CONFIRMED
+    S-->>C: (optional) client polls GET /bookings/{id}
+  else any seat unavailable
+    DB-->>S: failed seat update
+    S-->>C: 409 {code: SEAT_UNAVAILABLE, unavailableSeatIds}
+  end
+
+  par hold expiry
+    J->>DB: find Holds ACTIVE where expiresAt < now
+    J->>DB: TX: release seats (HELD->AVAILABLE), Hold EXPIRED
+  end
+
