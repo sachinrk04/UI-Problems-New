@@ -38,11 +38,11 @@ const HeapSort = () => {
   }, [sorting]);
 
   // ── heapify ────────────────────────────────────────────────────────────────
-  const heapify = async (
+  const heapify = useCallback(async (
     arr: number[],
     n: number,
     i: number,
-    movesRef: { moves: number }
+    movesRef: { moves: number },
   ) => {
     let largest = i;
     const left = 2 * i + 1;
@@ -74,7 +74,7 @@ const HeapSort = () => {
 
       await heapify(arr, n, largest, movesRef);
     }
-  };
+  }, [updateMusic]);
 
   // ── sort ───────────────────────────────────────────────────────────────────
   const heapSort = useCallback(async () => {
@@ -128,8 +128,8 @@ const HeapSort = () => {
         <h2 className="text-xl font-semibold text-gray-600">Heap Sort</h2>
 
         <p className="text-sm text-gray-500 w-[330px] text-center">
-          Builds a Max-Heap, then repeatedly extracts the maximum element
-          to sort the array.
+          Builds a Max-Heap, then repeatedly extracts the maximum element to
+          sort the array.
         </p>
 
         <div className="px-4 py-1 space-x-8 text-sm text-gray-600 border rounded-sm">
@@ -208,10 +208,7 @@ const HeapSort = () => {
       </div>
 
       {commonModal && (
-        <CodeViewModal
-          title="Heap Sort Code"
-          viewCode={heapSortCode}
-        />
+        <CodeViewModal title="Heap Sort Code" viewCode={heapSortCode} />
       )}
     </div>
   );
