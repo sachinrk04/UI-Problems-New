@@ -5,15 +5,15 @@
 ---
 
 ## 1. Requirements (Clarifying Questions)
-┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-|         Area           |                                        Questions                                              |
-|------------------------|-----------------------------------------------------------------------------------------------|
-| **Scale**              | How many floors? How many elevators (cars) per bank? One building or multiple shafts/banks?   |
-| **Requests**           | Hall calls (UP/DOWN) + car calls (destination) both? Can user request both directions?        |
-| **Policies**           | Should we prioritize minimizing wait time, travel time, or fairness? Any VIP/priority rides?  |
-| **Constraints**        | Capacity limit? Door-open dwell time? Maintenance mode / out-of-service?                      |
-| **Edge cases**         | Fire mode / emergency recall? Power failure? Overload?                                        |
-└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+| Area | Questions |
+|------|-----------|
+| **Scale** | How many floors? How many elevators (cars) per bank? One building or multiple shafts/banks? |
+| **Requests** | Hall calls (UP/DOWN) + car calls (destination) both? Can user request both directions? |
+| **Policies** | Should we prioritize minimizing wait time, travel time, or fairness? Any VIP/priority rides? |
+| **Constraints** | Capacity limit? Door-open dwell time? Maintenance mode / out-of-service? |
+| **Edge cases** | Fire mode / emergency recall? Power failure? Overload? |
+
 **Assumptions for this design:** One building, one elevator bank (N cars), hall calls have a direction (UP/DOWN), car calls are destination floors, no VIP mode, basic safety states omitted, focus on scheduling + direction.
 
 ---
@@ -255,15 +255,14 @@ When multiple hall calls come in:
 
 ## 9. Class Diagram (Summary)
 
-┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-|       Component      |                                  Responsibility                                             |
-|----------------------|---------------------------------------------------------------------------------------------|
-| **ElevatorSystem**   | Owns floors + elevators; routes incoming requests to Dispatcher.                            |
-| **Floor**            | Generates hall calls (UP/DOWN).                                                             |
-| **Elevator**         | Maintains direction/state and ordered stop-sets; executes movement and door cycles.         |
-| **Dispatcher**       | Assigns hall calls to elevators using direction-aware cost.                                 |
-| **Request**          | Captures hall/call intent with direction/destination.                                       |
-└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+| Component | Responsibility |
+|-----------|----------------|
+| **ElevatorSystem** | Owns floors + elevators; routes incoming requests to Dispatcher. |
+| **Floor** | Generates hall calls (UP/DOWN). |
+| **Elevator** | Maintains direction/state and ordered stop-sets; executes movement and door cycles. |
+| **Dispatcher** | Assigns hall calls to elevators using direction-aware cost. |
+| **Request** | Captures hall/call intent with direction/destination. |
+
 ---
 
 ## 10. Testing Focus
