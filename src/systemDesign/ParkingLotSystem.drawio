@@ -1,0 +1,402 @@
+<mxfile host="65bd71144e">
+    <diagram id="arch" name="1. Architecture">
+        <mxGraphModel dx="1404" dy="936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="980" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="a-title" value="&lt;b&gt;Parking Lot System — High-Level Architecture&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="20" width="420" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-driver" value="Driver / Vehicle" style="shape=umlActor;verticalLabelPosition=bottom;html=1;verticalAlign=top;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="120" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-ent" value="&lt;font color=&quot;#1a1a1a&quot;&gt;Entrance&lt;br&gt;Gate&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="200" y="130" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-exit" value="&lt;font color=&quot;#cc0000&quot;&gt;Exit&lt;br&gt;Gate&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="800" y="130" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-lot" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;ParkingLot&lt;/b&gt;&lt;br&gt;floors, entrances, exits&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=0" parent="1" vertex="1">
+                    <mxGeometry x="380" y="240" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-ts" value="&lt;font color=&quot;#1a1a1a&quot;&gt;TicketService&lt;br&gt;issue / resolve ticket&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="380" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-ss" value="&lt;font color=&quot;#1a1a1a&quot;&gt;SlotService&lt;br&gt;find compatible slot&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="380" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-pr" value="&lt;font color=&quot;#1a1a1a&quot;&gt;PricingService&lt;br&gt;duration × rate&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="380" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-ps" value="&lt;font color=&quot;#1a1a1a&quot;&gt;PaymentService&lt;br&gt;process payment&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="380" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-db" value="&lt;font color=&quot;#1a1a1a&quot;&gt;Slot / Ticket / Payment&lt;br&gt;state (atomic assign)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="520" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e1" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-driver" target="a-ent" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e2" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-ent" target="a-lot" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e3" style="endArrow=classic;html=1;rounded=0;dashed=1;" parent="1" source="a-exit" target="a-lot" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="850" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="a-e4" value="entry" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-lot" target="a-ts" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e5" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-ts" target="a-ss" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e6" value="exit" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-lot" target="a-pr" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e7" style="endArrow=classic;html=1;rounded=0;" parent="1" source="a-pr" target="a-ps" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e8" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;" parent="1" source="a-ss" target="a-db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e9" style="endArrow=classic;html=1;rounded=0;entryX=0.25;entryY=0;" parent="1" source="a-ts" target="a-db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-e10" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;" parent="1" source="a-ps" target="a-db" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-note" value="&lt;font color=&quot;#1a1a1a&quot;&gt;Pay-at-exit • FCFS slot • Ticket = vehicle + slot + entryTime&lt;/font&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff9e6;strokeColor=#d6b656;size=14;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="520" width="280" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe-bar" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;Frontend + BFF&lt;/b&gt; (tab 4 = screen flows · min taps)&lt;/font&gt;" style="text;html=1;fillColor=#e6f2ff;strokeColor=#4a90d9;rounded=1;align=center;spacingLeft=10;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="670" width="1000" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-kiosk" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;Entrance UI&lt;/b&gt;&lt;br&gt;Kiosk + optional LPR&lt;br&gt;Default CAR · big tiles&lt;br&gt;→ TicketService / SlotService&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=6;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="840" width="220" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-exitui" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;Exit UI&lt;/b&gt;&lt;br&gt;QR scan · fee display&lt;br&gt;One primary Pay CTA&lt;br&gt;→ Pricing + Payment&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=6;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="733" width="220" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-bff" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;BFF / API&lt;/b&gt;&lt;br&gt;REST + WebSocket&lt;br&gt;(gate status, errors)&lt;br&gt;Auth: kiosk device token&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=6;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="840" width="200" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-pwa" value="&lt;font color=&quot;#1a1a1a&quot;&gt;&lt;b&gt;Driver PWA&lt;/b&gt; (opt.)&lt;br&gt;QR in wallet · find car&lt;br&gt;Pre-saved payment&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=6;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="738" width="180" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe1" style="endArrow=classic;html=1;dashed=1;exitX=0.5;exitY=0;entryX=0.25;entryY=1;" edge="1" parent="1" source="a-kiosk" target="a-ent">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe2" style="endArrow=classic;html=1;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="a-exitui" target="a-exit">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe3" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="a-kiosk" target="a-bff">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe4" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="a-exitui" target="a-bff">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="a-fe5" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="a-bff" target="a-lot">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="620" y="600"/>
+                            <mxPoint x="480" y="600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="a-fe6" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1" source="a-pwa" target="a-bff">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="flows" name="2. Entry &amp; Exit Flows">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="f-h1" value="&lt;b&gt;ENTRY FLOW&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;fontSize=14;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="30" width="280" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-h2" value="&lt;b&gt;EXIT FLOW&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=center;fontSize=14;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="30" width="280" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e1" value="Vehicle arrives&#10;at Entrance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="90" width="120" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e2" value="Capture vehicle type&#10;(BIKE / CAR / TRUCK / BUS)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="170" width="150" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e3" value="SlotService: find first&#10;AVAILABLE compatible slot&#10;(smallest fit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="290" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e4" value="Slot&#10;found?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="165" y="390" width="110" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e5" value="Parking full / queue&#10;Reject entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="405" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e6" value="Create Ticket&#10;Assign vehicle → Slot&#10;Slot → OCCUPIED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="500" width="180" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-e7" value="Issue ticket&#10;(print / QR / app)&#10;Open gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="150" y="600" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x1" value="Present ticket&#10;at Exit (scan / id / LPR)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="90" width="140" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x2" value="Load Ticket&#10;Set exitTime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="170" width="120" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x3" value="PricingService:&#10;fee = f(duration, vehicleType)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="250" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x4" value="PaymentService:&#10;CASH / CARD / UPI / WALLET" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="330" width="180" height="56" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x5" value="Payment&#10;OK?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="675" y="410" width="110" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x6" value="Retry / failed&#10;Keep slot occupied" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="860" y="420" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-x7" value="Ticket → PAID&#10;Slot → AVAILABLE&#10;Open gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="650" y="520" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l1" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e1" target="f-e2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l2" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e2" target="f-e3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l3" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e3" target="f-e4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l4" value="No" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e4" target="f-e5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l5" value="Yes" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e4" target="f-e6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l6" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-e6" target="f-e7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l7" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x1" target="f-x2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l8" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x2" target="f-x3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l9" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x3" target="f-x4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l10" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x4" target="f-x5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l11" value="No" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x5" target="f-x6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f-l12" value="Yes" style="endArrow=classic;html=1;" edge="1" parent="1" source="f-x5" target="f-x7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="er" name="3. Entity Model">
+        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="r-title" value="&lt;b&gt;Core entities &amp; relationships&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="20" width="280" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-pl" value="&lt;b&gt;ParkingLot&lt;/b&gt;&#10;lotId, name" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="70" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-fl" value="&lt;b&gt;Floor&lt;/b&gt;&#10;floorNumber, slots[]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="200" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-sl" value="&lt;b&gt;Slot&lt;/b&gt;&#10;type (S/M/L), status&#10;AVAILABLE | OCCUPIED | …" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="340" width="200" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-v" value="&lt;b&gt;Vehicle&lt;/b&gt;&#10;plate, VehicleType" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="200" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-tk" value="&lt;b&gt;Ticket&lt;/b&gt;&#10;entryTime, exitTime&#10;→ vehicle, slot, gate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="330" width="220" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-pay" value="&lt;b&gt;Payment&lt;/b&gt;&#10;amount, method, status&#10;→ ticketId" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="340" width="170" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e1" value="has many" style="endArrow=block;endFill=1;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" parent="1" source="r-pl" target="r-fl" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e2" value="has many" style="endArrow=block;endFill=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="r-fl" target="r-sl" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e3" value="assigned" style="endArrow=block;endFill=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="r-sl" target="r-tk" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e4" value="for" style="endArrow=block;endFill=1;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.35;" parent="1" source="r-v" target="r-tk" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e5" value="on exit" style="endArrow=block;endFill=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="r-tk" target="r-pay" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-leg" value="Ticket links Vehicle + Slot at entry. Payment at exit completes ticket and frees slot." style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#fff9e6;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="520" width="380" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-gate" value="&lt;b&gt;Entrance / Exit&lt;/b&gt;&#10;gateId, deviceId" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;spacingLeft=8;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="r-e6" value="at" style="endArrow=block;endFill=1;html=1;dashed=1;" edge="1" parent="1" source="r-gate" target="r-tk">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="105" y="310"/>
+                            <mxPoint x="400" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="r-more" value="Enums: SlotType S/M/L · SlotStatus AVAIL|OCCUPIED|RESERVED|MAINT · PaymentMethod CASH|CARD|UPI|WALLET · Ticket ACTIVE|PAID|LOST" style="shape=note;whiteSpace=wrap;html=1;size=12;fillColor=#eeeeee;strokeColor=#999999;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="600" width="500" height="56" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="fe" name="4. Frontend — Min clicks">
+        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1240" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="fe-title" value="&lt;b&gt;Frontend UX — minimum taps&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Goal: entry 0–1 tap · exit 1–2 taps (happy path)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="16" width="480" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-p1" value="&lt;b&gt;Principles&lt;/b&gt;&lt;br&gt;• Default vehicle = &lt;b&gt;CAR&lt;/b&gt; (one-tap Confirm or 0 if LPR)&lt;br&gt;• &lt;b&gt;LPR/ANPR&lt;/b&gt; when possible → no type selection&lt;br&gt;• Exit: &lt;b&gt;scan first&lt;/b&gt; → show amount → &lt;b&gt;one primary Pay&lt;/b&gt; button&lt;br&gt;• Remember last payment method on device · Cash = staff single action&lt;br&gt;• Hide &quot;Lost ticket&quot; behind secondary menu" style="shape=note;whiteSpace=wrap;html=1;size=16;fillColor=#fff9e6;strokeColor=#d6b656;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="70" width="520" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-p2" value="&lt;b&gt;Click budget (happy path)&lt;/b&gt;&lt;br&gt;LPR + auto issue → &lt;font color=&quot;#2d7600&quot;&gt;&lt;b&gt;0 taps&lt;/b&gt;&lt;/font&gt;&lt;br&gt;Kiosk CAR (Confirm only) → &lt;font color=&quot;#2d7600&quot;&gt;&lt;b&gt;1&lt;/b&gt;&lt;/font&gt;&lt;br&gt;Kiosk Bike/Truck/Bus → &lt;b&gt;2&lt;/b&gt; (type + Confirm)&lt;br&gt;Exit + default Pay → &lt;font color=&quot;#2d7600&quot;&gt;&lt;b&gt;1&lt;/b&gt;&lt;/font&gt;&lt;br&gt;Exit + change method → &lt;b&gt;2&lt;/b&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#e6f2ff;strokeColor=#4a90d9;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="70" width="280" height="118" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-h-en" value="&lt;b&gt;ENTRY — Kiosk / lane screens&lt;/b&gt;" style="text;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="220" width="520" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-h-ex" value="&lt;b&gt;EXIT — Terminal screens&lt;/b&gt;" style="text;html=1;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="220" width="580" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-e-a" value="&lt;b&gt;A) LPR path&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Camera reads plate → API assigns slot →&lt;br&gt;&lt;b&gt;Screen:&lt;/b&gt; only guidance&lt;br&gt;&quot;→ Level 2 · Bay B14&quot; + QR&lt;br&gt;&lt;font color=&quot;#2d7600&quot;&gt;&lt;b&gt;0 taps&lt;/b&gt;&lt;/font&gt; (info only)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;strokeWidth=2;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="260" width="230" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-e-b" value="&lt;b&gt;B) Kiosk — idle&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Full-screen: &quot;Tap to enter&quot;&lt;br&gt;OR auto-advance to next after 3s&lt;br&gt;with &lt;b&gt;CAR pre-selected&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="260" width="240" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-e-c" value="&lt;b&gt;C) Vehicle type (one screen)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;4 large tiles:&lt;br&gt;&lt;b&gt;[ CAR ✓ ]&lt;/b&gt; Bike · Truck · Bus&lt;br&gt;CAR highlighted by default&lt;br&gt;Non-CAR = &lt;b&gt;1 extra tap&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="390" width="240" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-e-d" value="&lt;b&gt;D) Success&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Slot + QR + &lt;b&gt;[ Print ]&lt;/b&gt;&lt;br&gt;Single &lt;b&gt;Confirm &amp; open gate&lt;/b&gt;&lt;br&gt;merges print + issue = &lt;b&gt;1 tap&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="310" y="370" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-e-full" value="&lt;font color=&quot;#b85450&quot;&gt;Lot full:&lt;/font&gt; one screen — waitlist / try another lot · &lt;b&gt;1 tap&lt;/b&gt; OK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#b85450;fontSize=11;align=left;spacingLeft=6;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="510" width="490" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-le1" style="endArrow=classic;html=1;" parent="1" source="fe-e-b" target="fe-e-c" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-le2" style="endArrow=classic;html=1;" parent="1" source="fe-e-c" target="fe-e-d" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-a" value="&lt;b&gt;1) Scan&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Hands-free QR reader&lt;br&gt;or driver holds ticket&lt;br&gt;&lt;b&gt;0 taps&lt;/b&gt; — auto submit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="260" width="160" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-b" value="&lt;b&gt;2) Pay screen&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Duration · &lt;b&gt;₹ Amount&lt;/b&gt;&lt;br&gt;Huge: &lt;b&gt;[ Pay now ]&lt;/b&gt;&lt;br&gt;uses &lt;b&gt;default method&lt;/b&gt;&lt;br&gt;(UPI last used on device)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=8;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="255" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-c" value="&lt;b&gt;3) Processing&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Spinner · no extra taps&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#999999;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="275" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-d" value="&lt;b&gt;4) Done&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;&quot;Thank you&quot; · gate opens&lt;br&gt;Optional email receipt — skip&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="900" y="390" width="180" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-sec" value="&lt;b&gt;Secondary row&lt;/b&gt; (smaller):&lt;br&gt;Cash · Card · Change method&lt;br&gt;— never block primary Pay" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#f5f5f5;strokeColor=#999999;fontSize=11;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="385" width="260" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-x-lost" value="&lt;b&gt;Lost ticket&lt;/b&gt; under ⋮ Help → plate + fee estimate · &lt;i&gt;avoid on main path&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;fontSize=11;align=left;spacingLeft=6;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="480" width="540" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-lx1" style="endArrow=classic;html=1;" parent="1" source="fe-x-a" target="fe-x-b" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-lx2" style="endArrow=classic;html=1;" parent="1" source="fe-x-b" target="fe-x-c" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-lx3" style="endArrow=classic;html=1;" parent="1" source="fe-x-c" target="fe-x-d" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-api" value="&lt;b&gt;BFF calls (frontend)&lt;/b&gt;&lt;br&gt;POST /entry { vehicleType?, plate? } → { ticketId, slot, qr }&lt;br&gt;POST /exit/quote { ticketId } → { amount, duration }&lt;br&gt;POST /exit/pay { ticketId, method } → { ok }&lt;br&gt;WS /gate/{laneId} — open, error, full" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="570" width="560" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-a11y" value="&lt;b&gt;A11y / ops&lt;/b&gt; High contrast · huge touch 64dp+ · idle timeout reset · offline queue for pay retry" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;fontSize=11;align=left;spacingLeft=6;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="570" width="560" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="fe-sum" value="&lt;b&gt;Summary&lt;/b&gt; Merge steps on one screen · smart defaults · scan-before-form · one fat Pay button · defer edge cases to secondary UI" style="shape=note;whiteSpace=wrap;html=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="690" width="1140" height="44" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="detail" name="5. APIs &amp; slot lifecycle">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="d-t1" value="&lt;b&gt;REST summary&lt;/b&gt;" style="text;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="20" width="200" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-api" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; style=&quot;font-size:11px&quot;&gt;&lt;tr&gt;&lt;th&gt;Method&lt;/th&gt;&lt;th&gt;Path&lt;/th&gt;&lt;th&gt;Purpose&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;POST&lt;/td&gt;&lt;td&gt;/v1/entry&lt;/td&gt;&lt;td&gt;vehicleType, plate? → ticket, slot, gate command&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;GET&lt;/td&gt;&lt;td&gt;/v1/tickets/{id}&lt;/td&gt;&lt;td&gt;status, slot, amount preview&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;POST&lt;/td&gt;&lt;td&gt;/v1/tickets/{id}/quote&lt;/td&gt;&lt;td&gt;exitTime → fee breakdown&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;POST&lt;/td&gt;&lt;td&gt;/v1/tickets/{id}/pay&lt;/td&gt;&lt;td&gt;method → payment, release slot, gate open&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;GET&lt;/td&gt;&lt;td&gt;/v1/lots/{id}/availability&lt;/td&gt;&lt;td&gt;counts by type (optional dashboard)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="50" width="520" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-t2" value="&lt;b&gt;Slot state (detail)&lt;/b&gt;" style="text;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="210" width="220" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-s1" value="AVAILABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="250" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-s2" value="entry + atomic assign" style="text;html=1;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="258" width="120" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-s3" value="OCCUPIED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="250" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-s4" value="pay success" style="text;html=1;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="258" width="70" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-s5" value="AVAILABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="250" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-l1" style="endArrow=classic;html=1;" edge="1" parent="1" source="d-s1" target="d-s3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-l2" style="endArrow=classic;html=1;" edge="1" parent="1" source="d-s3" target="d-s5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-sr" value="RESERVED (booking)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="310" width="130" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-sm" value="MAINTENANCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="310" width="110" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-conc" value="&lt;b&gt;Concurrency&lt;/b&gt;&lt;br&gt;Assign slot in DB transaction / compare-and-set on slot.version&lt;br&gt;so two kiosks never get same slot." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff9e6;strokeColor=#d6b656;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="50" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-price" value="&lt;b&gt;Pricing inputs&lt;/b&gt;&lt;br&gt;entryTime, exitTime, vehicleType (optional slot tier)&lt;br&gt;Slabs: first 2h / next 3h / hourly · peak multiplier&lt;br&gt;Lost ticket: max daily cap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="150" width="280" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-err" value="&lt;b&gt;Idempotency&lt;/b&gt; pay(ticketId) safe to retry · duplicate exit → show receipt only&lt;br&gt;&lt;b&gt;Errors&lt;/b&gt; full → 409 · invalid ticket → 404 · payment fail → 402 + keep OCCUPIED" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="380" width="520" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-obs" value="&lt;b&gt;Observability&lt;/b&gt; Metrics: entry latency, assign failures, pay success rate · Audit log on slot assign + pay" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="270" width="280" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
