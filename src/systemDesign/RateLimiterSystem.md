@@ -6,6 +6,169 @@
 
 ---
 
+## Frontend view (what you do on the client)
+
+Backend/gateway rate limiting is the source of truth. On the **frontend**, you add **polite client-side limiting** to:
+- reduce accidental bursts (double-clicks, aggressive polling, infinite scroll)
+- protect the user experience (avoid spinners + repeated 429s)
+- smooth traffic (queue/pace requests) and improve success rate
+
+### What frontend can/can’t guarantee
+
+- **Frontend can**
+  - throttle/pace requests per user action
+  - dedupe identical requests
+  - limit concurrency (e.g., only 4 in-flight requests)
+  - implement exponential backoff + jitter on `429/503`
+  - coordinate across tabs (best-effort)
+- **Frontend can’t**
+  - enforce security (attackers can bypass the client)
+  - provide strict distributed correctness (multiple devices, spoofed clients)
+
+### Common frontend use cases
+
+- **Search-as-you-type**: debounce input + cancel stale requests
+- **OTP / resend code**: strict UI cooldown + disable button
+- **Like/follow**: optimistic UI + prevent rapid toggles
+- **Bulk uploads**: concurrency cap + per-host pacing
+- **Polling**: adaptive polling + stop on background tab
+
+### Where to implement in a web app
+
+- **Fetch/axios wrapper**: central place to throttle + retry + read headers
+- **Request queue**: per resource group (e.g., `payments`, `search`, `writes`)
+- **React Query / SWR**: dedupe + caching; add retry logic with 429 handling
+
+---
+
+## Frontend patterns (practical)
+
+### Pattern A: Concurrency limiter (simple, high impact)
+
+Limit in-flight requests to avoid saturating network and backend.
+
+```ts
+export function createConcurrencyLimiter(maxInFlight: number) {
+  let inFlight = 0
+  const queue: Array<() => void> = []
+
+  const runNext = () => {
+    if (inFlight >= maxInFlight) return
+    const next = queue.shift()
+    if (!next) return
+    inFlight++
+    next()
+  }
+
+  return async function limit<T>(fn: () => Promise<T>): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      queue.push(async () => {
+        try {
+          const res = await fn()
+          resolve(res)
+        } catch (e) {
+          reject(e)
+        } finally {
+          inFlight--
+          runNext()
+        }
+      })
+      runNext()
+    })
+  }
+}
+```
+
+**Use when**: uploads, feed pagination, background refreshers.
+
+---
+
+### Pattern B: Token bucket in the browser (per tab / per session)
+
+This is **best-effort** and mainly prevents accidental bursts from the UI.
+
+```ts
+type TokenBucketConfig = {
+  capacity: number
+  refillPerSecond: number
+}
+
+export function createTokenBucket(config: TokenBucketConfig) {
+  const refillPerMs = config.refillPerSecond / 1000
+  let tokens = config.capacity
+  let last = Date.now()
+
+  function refill(now: number) {
+    const delta = now - last
+    if (delta <= 0) return
+    tokens = Math.min(config.capacity, tokens + delta * refillPerMs)
+    last = now
+  }
+
+  return {
+    tryConsume(cost = 1) {
+      const now = Date.now()
+      refill(now)
+      if (tokens >= cost) {
+        tokens -= cost
+        return { allowed: true as const, remaining: Math.floor(tokens) }
+      }
+      const deficit = cost - tokens
+      const retryAfterMs = Math.ceil(deficit / refillPerMs)
+      return { allowed: false as const, remaining: 0, retryAfterMs }
+    },
+  }
+}
+```
+
+**Use when**: “resend OTP”, “create post”, “follow/unfollow” spam prevention.
+
+---
+
+### Pattern C: Handle `429` correctly (use server signals)
+
+Your backend/gateway should return:
+- `429`
+- `Retry-After` (seconds), or `X-RateLimit-Reset`
+
+Frontend should:
+- stop immediate retries
+- show UI message (“Try again in 8s”)
+- optionally schedule a retry after `Retry-After`
+
+```ts
+export function parseRetryAfterMs(headers: Headers): number | undefined {
+  const ra = headers.get("retry-after")
+  if (!ra) return
+  const seconds = Number(ra)
+  if (Number.isFinite(seconds) && seconds >= 0) return seconds * 1000
+}
+```
+
+---
+
+### Pattern D: Cross-tab coordination (best-effort)
+
+If you want “per-browser” throttling (not per tab), you can coordinate via:
+- `BroadcastChannel` (modern browsers)
+- `localStorage` events (fallback)
+
+Approach:
+- designate a “leader tab” that runs the limiter
+- other tabs request permission via messages
+
+This is optional and adds complexity; for most apps, **per-tab** limiting + backend enforcement is enough.
+
+---
+
+### Pattern E: UI-level guardrails (often the best ROI)
+
+- disable buttons after click until response (prevents double-submit)
+- add cooldown timers for sensitive actions (OTP/login)
+- cancel stale requests (AbortController) for typeahead/search
+
+---
+
 ## 1️⃣ High-Level Design (HLD)
 
 ### 1.1 System goals and requirements
@@ -39,15 +202,15 @@
 
 ```
           ┌──────────────────────┐
-Client ──▶│  Edge / API Gateway   │
-          │  - AuthN/AuthZ        │
-          │  - Route matching     │
-          │  - Rate limit check   │
+Client ──▶│  Edge / API Gateway  │
+          │  - AuthN/AuthZ       │
+          │  - Route matching    │
+          │  - Rate limit check  │
           └─────────┬────────────┘
                     │ (decision + headers)
                     ▼
           ┌──────────────────────┐
-          │ Downstream services   │
+          │ Downstream services  │
           └──────────────────────┘
 
 Rate limit check is typically:
