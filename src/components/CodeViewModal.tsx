@@ -4,7 +4,7 @@ import type { AppDispatch, RootState } from "@/store/store";
 import { openCommonModal } from "@/store/actions";
 import CodeBlock from "./CodeBlock";
 
-const CodeViewModal = ({title = "Code", viewCode = ""} : any) => {
+const CodeViewModal = ({ title = "Code", viewCode = "" }: any) => {
   const dispatch = useDispatch<AppDispatch>();
   const { commonModal } = useSelector((state: RootState) => state.commonState);
   return (
@@ -20,7 +20,7 @@ const CodeViewModal = ({title = "Code", viewCode = ""} : any) => {
           </SheetTitle>
         </SheetHeader>
         <div className="p-4 max-h-[calc(100vh-4rem)] overflow-auto rounded-sm">
-            <CodeBlock code={viewCode} height="max-h-[calc(100vh-5.5rem)]" />
+          <CodeBlock code={viewCode} height="max-h-[calc(100vh-5.5rem)]" />
         </div>
       </SheetContent>
     </Sheet>

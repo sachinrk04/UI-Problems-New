@@ -105,6 +105,9 @@ const UseGeolocationPage = lazy(
 const UseWindowSizePage = lazy(
   () => import("./pages/ReactHooks/UseWindowSizePage"),
 );
+const UseVirtualListPage = lazy(
+  () => import("./pages/ReactHooks/UseVirtualListPage"),
+);
 const UseStatePage = lazy(() => import("./pages/ReactHooks/UseStatePage"));
 
 // Algorithms
@@ -175,6 +178,7 @@ const hookRoutes: RouteConfig[] = [
   { path: "use-fetch", element: <UseFetchPage /> },
   { path: "use-geolocation", element: <UseGeolocationPage /> },
   { path: "use-window-size", element: <UseWindowSizePage /> },
+  { path: "use-virtual-list", element: <UseVirtualListPage /> },
   { path: "use-state-custom", element: <UseStatePage /> },
 ];
 

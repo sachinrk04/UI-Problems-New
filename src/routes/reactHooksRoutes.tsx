@@ -58,6 +58,13 @@ export const reactHooksRoutes = [
     pageDescription: "",
   },
   {
+    name: "useVirtualList",
+    href: "/react-hooks/use-virtual-list",
+    icon: Webhook,
+    sideDescription: "",
+    pageDescription: "",
+  },
+  {
     name: "useStateCustom",
     href: "/react-hooks/use-state-custom",
     icon: Webhook,
