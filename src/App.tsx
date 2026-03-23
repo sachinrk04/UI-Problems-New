@@ -86,6 +86,9 @@ const GenerateTablePage = lazy(
 const ReactVirtualizedPage = lazy(
   () => import("./pages/UIProblems/ReactVirtualizedPage"),
 );
+const ReactVirtualizedPageII = lazy(
+  () => import("./pages/UIProblems/ReactVirtualizedPageII"),
+);
 
 // React Hooks
 const UseCounterPage = lazy(() => import("./pages/ReactHooks/UseCounterPage"));
@@ -168,6 +171,7 @@ const uiRoutes: RouteConfig[] = [
   { path: "lifting-state-up", element: <LiftingStateUpPage /> },
   { path: "generate-table", element: <GenerateTablePage /> },
   { path: "react-virtualized", element: <ReactVirtualizedPage /> },
+  { path: "react-virtualized-ii", element: <ReactVirtualizedPageII /> },
 ];
 
 const hookRoutes: RouteConfig[] = [

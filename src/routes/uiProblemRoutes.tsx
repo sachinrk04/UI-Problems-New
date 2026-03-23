@@ -308,4 +308,11 @@ export const uiProblemRoutes = [
     sideDescription: "",
     pageDescription: "",
   },
+  {
+    name: "React Virtualized II",
+    href: "/ui-problems/react-virtualized-ii",
+    icon: Scroll,
+    sideDescription: "",
+    pageDescription: "",
+  },
 ];
