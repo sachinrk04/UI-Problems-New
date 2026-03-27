@@ -8,7 +8,7 @@ const NestedBox = () => {
     <div className="flex flex-col p-4 overflow-auto gap-y-4">
       <div className="w-full px-4 py-2 overflow-auto rounded-md shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
         <PageHeader
-          title="Nexted Box"
+          title="Nested Box"
           description="Clicking the box creates a new nested box using React state."
         />
       </div>
