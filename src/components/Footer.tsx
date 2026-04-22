@@ -28,10 +28,10 @@ export function Footer() {
             {/* Brand */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4 space-x-2 group">
-                <div className="flex items-center justify-center w-8 h-8 transition-all duration-300 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
+                <div className="flex items-center justify-center w-8 h-8 transition-all duration-300 rounded-lg bg-gradient-to-br from-primary/40 to-primary/80 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
                   <span className="text-sm font-bold text-white">RC</span>
                 </div>
-                <span className="text-lg font-semibold transition-colors duration-200 group-hover:text-blue-600">
+                <span className="text-lg font-semibold transition-colors duration-200 group-hover:text-primary/60">
                   React Components
                 </span>
               </div>
@@ -46,7 +46,7 @@ export function Footer() {
                     key={social.label}
                     variant="outline"
                     size="sm"
-                    className="p-0 transition-all duration-200 h-9 w-9 hover:scale-110 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
+                    className="p-0 transition-all duration-200 h-9 w-9 hover:scale-110 hover:bg-primary/10 hover:border-primary/30 hover:text-primary/60"
                     title={social.label}
                   >
                     <social.icon className="w-4 h-4" />
@@ -65,7 +65,7 @@ export function Footer() {
                   <li key={name}>
                     <Link
                       to={href}
-                      className="inline-block text-sm text-gray-600 transition-all duration-200 hover:text-blue-600 hover:translate-x-1"
+                      className="inline-block text-sm text-gray-600 transition-all duration-200 hover:text-primary hover:translate-x-1"
                     >
                       {name}
                     </Link>
