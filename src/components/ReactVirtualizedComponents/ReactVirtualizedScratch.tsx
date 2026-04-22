@@ -28,7 +28,7 @@ const ReactVirtualizedScratch = () => {
       style={{ height: CONTAINER_HEIGHT }}
       onScroll={handleScroll}
     >
-      <div className={`h-[${totalHeight}px] relative`}>
+      <div style={{ height: totalHeight }} className="relative">
         {visibleItems.map((item, index) => {
           const actualIndex = startIndex + index;
 
