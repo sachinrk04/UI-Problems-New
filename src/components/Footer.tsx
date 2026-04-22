@@ -22,7 +22,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="p-4 transition-all duration-300 bg-white border-t">
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)]">
+      <div className="px-4 mx-auto sm:px-6 lg:px-8 rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] bg-primary/5">
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Brand */}

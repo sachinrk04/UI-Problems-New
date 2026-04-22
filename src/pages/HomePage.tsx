@@ -42,7 +42,7 @@ const HomePage = () => {
     <div className="flex flex-col overflow-auto">
       <div className="flex-1 p-4 space-y-4 min-h-[calc(100vh-5rem)]">
         {/* Hero */}
-        <div className="rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] p-8">
+        <div className="rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)] bg-primary/5 p-4">
             
           <p className="max-w-xl text-sm text-gray-500">
             A hands-on collection of UI problems, custom hooks, algorithm
