@@ -1,6 +1,23 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+
+const sections = [
+  { name: "UI Problems", href: "/ui-problems" },
+  { name: "React Hooks", href: "/react-hooks" },
+  { name: "Algorithms", href: "/algorithms" },
+  { name: "Git", href: "/git" },
+];
+
+const techStack = ["React", "TypeScript", "Tailwind CSS", "React Router", "Redux Toolkit", "Vite"];
+
+const socials = [
+  { icon: Github, href: "#", label: "GitHub" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Mail, href: "#", label: "Email" },
+];
 
 export function Footer() {
   return (
@@ -8,7 +25,7 @@ export function Footer() {
       <div className="px-4 mx-auto sm:px-6 lg:px-8 rounded-md shadow-[inset_0_0px_10px_rgba(0,0,0,0.10)]">
         <div className="py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            {/* Company Info */}
+            {/* Brand */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4 space-x-2 group">
                 <div className="flex items-center justify-center w-8 h-8 transition-all duration-300 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg">
@@ -18,17 +35,13 @@ export function Footer() {
                   React Components
                 </span>
               </div>
-              <p className="max-w-md mb-4 text-gray-600 transition-colors duration-200">
-                A comprehensive collection of reusable React components built
-                with modern design principles and accessibility in mind.
+              <p className="max-w-md mb-4 text-sm text-gray-600">
+                A hands-on practice space for UI challenges, custom hooks,
+                algorithm visualizations, and Git references — built to sharpen
+                React skills through doing.
               </p>
               <div className="flex space-x-4">
-                {[
-                  { icon: Github, href: "#", label: "GitHub" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
-                  { icon: Mail, href: "#", label: "Email" },
-                ].map((social) => (
+                {socials.map((social) => (
                   <Button
                     key={social.label}
                     variant="outline"
@@ -36,78 +49,56 @@ export function Footer() {
                     className="p-0 transition-all duration-200 h-9 w-9 hover:scale-110 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
                     title={social.label}
                   >
-                    <social.icon className="w-4 h-4 transition-transform duration-200 hover:rotate-12" />
+                    <social.icon className="w-4 h-4" />
                   </Button>
                 ))}
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Sections */}
             <div>
-              <h3 className="mb-4 font-semibold text-gray-900 transition-colors duration-200">
-                Quick Links
+              <h3 className="mb-4 text-sm font-semibold text-gray-900">
+                Sections
               </h3>
               <ul className="space-y-2">
-                {[
-                  "Getting Started",
-                  "Components",
-                  "Documentation",
-                  "Examples",
-                ].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="inline-block text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:translate-x-1"
+                {sections.map(({ name, href }) => (
+                  <li key={name}>
+                    <Link
+                      to={href}
+                      className="inline-block text-sm text-gray-600 transition-all duration-200 hover:text-blue-600 hover:translate-x-1"
                     >
-                      {link}
-                    </a>
+                      {name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Support */}
+            {/* Tech Stack */}
             <div>
-              <h3 className="mb-4 font-semibold text-gray-900 transition-colors duration-200">
-                Support
+              <h3 className="mb-4 text-sm font-semibold text-gray-900">
+                Built With
               </h3>
               <ul className="space-y-2">
-                {["Help Center", "Community", "Contact Us", "Bug Report"].map(
-                  (link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="inline-block text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:translate-x-1"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ),
-                )}
+                {techStack.map((tech) => (
+                  <li
+                    key={tech}
+                    className="text-sm text-gray-600"
+                  >
+                    {tech}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
-        <Separator className="transition-all duration-300" />
+        <Separator />
 
-        <div className="flex flex-col items-center justify-between py-6 sm:flex-row">
-          <p className="text-sm text-gray-600 transition-colors duration-200">
-            © 2024 React Components. All rights reserved.
+        <div className="py-6 text-center">
+          <p className="text-sm text-gray-600">
+            © {new Date().getFullYear()} React Components. Built for learning.
           </p>
-          <div className="flex mt-4 space-x-6 sm:mt-0">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
-              (link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-sm text-gray-600 transition-all duration-200 transform hover:text-blue-600 hover:scale-105"
-                >
-                  {link}
-                </a>
-              ),
-            )}
-          </div>
         </div>
       </div>
     </footer>

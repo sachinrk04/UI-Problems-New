@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "./components/ui/sonner";
+import { ErrorBoundary, type FallbackProps } from "react-error-boundary";
+
 import MainLayout from "./layouts/MainLayout";
 
 // ─── Eagerly loaded (shell pages, always needed) ──────────────────────────────
@@ -9,7 +11,6 @@ import UIProblems from "./pages/UIProblems";
 import ReactHooks from "./pages/ReactHooks";
 import AlgorithmPage from "./pages/AlgorithmPage";
 import GitPage from "./pages/GitPage";
-import HeapSortPage from "./pages/AlgorithmPage/HeapSortPage";
 
 // ─── Lazy loaded ──────────────────────────────────────────────────────────────
 // UI Problems
@@ -117,6 +118,7 @@ const UseStatePage = lazy(() => import("./pages/ReactHooks/UseStatePage"));
 const CocktailShakerSortPage = lazy(
   () => import("./pages/AlgorithmPage/CocktailShakerSortPage"),
 );
+const HeapSortPage = lazy(() => import("./pages/AlgorithmPage/HeapSortPage"));
 
 // Git
 const BasicGitCommands = lazy(() => import("./pages/GitPage/BasicGitCommands"));
@@ -207,9 +209,26 @@ function PageLoader() {
   );
 }
 
+function PageError({ error }: FallbackProps) {
+  const message = error instanceof Error ? error.message : "Something went wrong.";  
+  return (
+    <div className="flex items-center justify-center w-full h-full py-20 text-sm bg-red-100 text-destructive">
+      {message}
+    </div>
+  );
+}
+
 // ─── Helper to wrap a lazy element with Suspense ─────────────────────────────
 function Lazy({ element }: { element: React.ReactNode }) {
-  return <Suspense fallback={<PageLoader />}>{element}</Suspense>;
+  const location = useLocation();
+  return (
+    <ErrorBoundary
+      FallbackComponent={PageError}
+      resetKeys={[location.pathname]}
+    >
+      <Suspense fallback={<PageLoader />}>{element}</Suspense>
+    </ErrorBoundary>
+  );
 }
 
 // ─── App ──────────────────────────────────────────────────────────────────────
