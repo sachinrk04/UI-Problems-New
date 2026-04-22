@@ -74,7 +74,7 @@ const Autocomplete = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-y-4">
-      <div className="relative w-1/2" ref={containerRef}>
+      <div className="relative w-2/3" ref={containerRef}>
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -83,11 +83,11 @@ const Autocomplete = () => {
           onFocus={handleFocus}
         />
         {open && options.length > 0 && (
-          <div className="absolute w-full bg-white border rounded-xl shadow mt-1 max-h-60 overflow-auto">
+          <div className="absolute w-full mt-1 overflow-auto bg-white border shadow rounded-xl max-h-60">
             {options.map((option) => (
               <div
                 key={option.id}
-                className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-3 py-2 cursor-pointer hover:bg-gray-100"
               >
                 {option.title}
               </div>
@@ -100,7 +100,7 @@ const Autocomplete = () => {
           {data.map((option: any) => (
             <div
               key={option.id}
-              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+              className="px-3 py-2 cursor-pointer hover:bg-gray-100"
             >
               {option.title}
             </div>
