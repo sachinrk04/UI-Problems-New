@@ -8,6 +8,10 @@
 // Returns
 //      (Array): Returns the new array of filtered values.
 
+// --------------------------------------------------------------------------------------------------------------
+// METHOD-1
+// --------------------------------------------------------------------------------------------------------------
+
 function difference(array, values) {
   const result = [];
 
@@ -25,3 +29,26 @@ console.log("difference--->", difference([1, 2, 3, 4], [2, 3, 1])); // => [4]
 console.log("difference--->", difference([1, 2, 3], [2, 3, 1, 4])); // => []
 console.log("difference--->", difference([1, , 3], [1])); // => [3] (case of a sparse array)
 console.log("difference--->", difference([1, 2, 3], [])); // => [1, 2, 3]
+
+// --------------------------------------------------------------------------------------------------------------
+// METHOD-2
+// --------------------------------------------------------------------------------------------------------------
+
+function differenceFast(array, values) {
+  const valuesSet = new Set(values);
+  const result = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (i in array && !valuesSet.has(array[i])) {
+      result.push(array[i]);
+    }
+  }
+
+  return result;
+}
+
+console.log("differenceFast--->", differenceFast([1, 2, 3], [2, 3])); // => [1]
+console.log("differenceFast--->", differenceFast([1, 2, 3, 4], [2, 3, 1])); // => [4]
+console.log("differenceFast--->", differenceFast([1, 2, 3], [2, 3, 1, 4])); // => []
+console.log("differenceFast--->", differenceFast([1, , 3], [1])); // => [3] (case of a sparse array)
+console.log("differenceFast--->", differenceFast([1, 2, 3], [])); // => [1, 2, 3]
